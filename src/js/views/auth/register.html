@@ -1,0 +1,48 @@
+<div class="form form-style-8">
+
+<h2>REGISTER</h2>
+<form name="register.registerForm" ng-submit="register.createUser()" novalidate>
+
+  <div ng-messages="register.registerForm.username.$error" role="alert" ng-show="(register.registerForm.username.$touched) &&(register.registerForm.username.$invalid)">
+    <div ng-message="required"> Username is required </div>
+  </div>
+  <div ng-show="register.registerForm.email.$touched &&(register.registerForm.email.$invalid)" ng-messages="register.registerForm.email.$error" role="alert">
+    <div ng-message="required"> Email is required </div>
+    <div ng-message="pattern">Please enter a valid email.</div>
+  </div>
+  <div ng-messages="register.registerForm.location.$error" role="alert" ng-show="(register.registerForm.location.$touched) &&(register.registerForm.location.$invalid)">
+    <div ng-message="required">Postcode is required </div>
+  </div>
+  <div ng-messages="register.registerForm.image.$error" role="alert" ng-show="(register.registerForm.image.$touched) &&(register.registerForm.image.$invalid)">
+    <div ng-message="required"> Image is required </div>
+  </div>
+  <div ng-messages="register.registerForm.password.$error" role="alert" ng-show="(register.registerForm.password.$touched) &&(register.registerForm.password.$invalid)">
+    <div ng-message="required"> Password is required </div>
+  </div>
+  <div ng-messages="register.registerForm.passwordConfirmation.$error" role="alert" ng-show="(register.registerForm.passwordConfirmation.$touched) &&(register.registerForm.passwordConfirmation.$invalid)">
+    <div ng-message="required">Confirmation is required </div>
+  </div>
+
+<!-- The INPUT FIELDS -->
+
+<label for="username">Username</label>
+<input type="text" name="username" ng-model="register.user.username" id="username" required>
+
+<label for="email">Email</label>
+<input type="text" name="email" id="email" ng-model="register.user.email" ng-pattern="/@/" required>
+
+<label for="location">Enter your adress</label>
+<input type="text" name="location" ng-model="register.user.location" required>
+
+<label for="image">Profile image</label>
+<input class="input-btn" type="file" base64 name="base64" id="image" ng-model="register.user.base64" required>
+
+<label for="password">Password</label>
+<input type="password" name="password" ng-model="register.user.password" required>
+
+<label for="passwordConfirmation">Password Confirmation</label>
+<input type="password" name="passwordConfirmation" ng-model="register.user.passwordConfirmation" required>
+
+<button>Register</button>
+</form>
+</div>
