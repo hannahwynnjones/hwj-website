@@ -2,12 +2,13 @@ angular
   .module('hwj')
   .controller( 'BlogsShowCtrl', BlogsShowCtrl);
 
-BlogsShowCtrl.$inject = ['Blog', 'User', 'Comment', '$stateParams', '$state', '$auth'];
-function BlogsShowCtrl(Blog, User, Comment, $stateParams, $state, $auth) {
+BlogsShowCtrl.$inject = ['Blog', 'User', 'Comments', '$stateParams', '$state', '$auth'];
+function BlogsShowCtrl(Blog, User, Comments, $stateParams, $state, $auth) {
   const vm = this;
   if ($auth.getPayload()) vm.currentUser = User.get({ id: $auth.getPayload().id });
 
   vm.blog = Blog.get($stateParams);
+  vm.users = User.query();
 
   console.log(vm.blog);
 //===================DELETE Blog==============
@@ -30,12 +31,12 @@ function BlogsShowCtrl(Blog, User, Comment, $stateParams, $state, $auth) {
   function addComment() {
     vm.comment.blog_id = vm.blog.id;
 
-    Comment
-      .save({ comment: vm.comment })
+    Comments
+    .save( {itemId: vm.item.id}, vm.newComment)
       .$promise
       .then((comment) => {
         vm.blog.comments.push(comment);
-        vm.comment = {};
+        vm.newComment = {};
       });
   }
 

@@ -8,6 +8,8 @@ function MainCtrl($rootScope, $state, $auth) {
 
   vm.isAuthenticated = $auth.isAuthenticated;
 
+  console.log('workigggg', vm.currentUser);
+
   $rootScope.$on('error', (e, err) => {
     vm.stateHasChanged = false;
     vm.message = err.data.message;
@@ -17,7 +19,25 @@ function MainCtrl($rootScope, $state, $auth) {
   $rootScope.$on('$stateChangeSuccess', () => {
     if(vm.stateHasChanged) vm.message = null;
     if(!vm.stateHasChanged) vm.stateHasChanged = true;
+    if($auth.getPayload()) vm.currentUser = $auth.getPayload();
+    console.log('workigggg', vm.currentUser);
+
+    if($auth.getPayload()) vm.profilePageId = $auth.getPayload().userId;
+    vm.navIsOpen = false;
+
   });
+  // 
+  // const protectedStates = ['blogsNew', 'blogsEdit'];
+  //
+  // $rootScope.$on('$stateChangeStart', (e, toState) => {
+  //   if((!$auth.isAuthenticated() && protectedStates.includes(toState.name))) {
+  //     e.preventDefault();
+  //     $state.go('login');
+  //     vm.message = 'You must be logged in to access this page.';
+  //   }
+  //   vm.pageName = toState.name;
+  //
+  // });
 
   function logout() {
     $auth.logout();

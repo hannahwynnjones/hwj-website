@@ -1,7 +1,7 @@
 <h1>shows all blogs</h1>
 
 <div class="">
-  <h3>Welcome back {{ blogsIndex.currentUser.first_name }}</h3>
+  <h3>Welcome back {{ blogsIndex.currentUser.username }}</h3>
 </div>
 
 <div class="">
@@ -10,9 +10,9 @@
     <li ng-repeat="blog in blogsIndex.all" class="col-md-6">
       <div class="blog">
         <h2>{{ blog.name }}</h2>
-          <img class="" ng-src="{{ blogsShow.blog.user.image_src }}" alt="{{ blogsShow.blog.user.username }}">
+          <img class="" ng-src="{{ blog.user.image_src }}" alt="{{ blog.user.username }}">
 
-        <p>Created by: <strong>{{ blog.user.username }}</strong></p>
+        <p>Created by: <strong>{{ blog.createdBy.username }}</strong></p>
         <button ui-sref="blogsShow({id: blog.id})">View</button>
       </div>
     </li>

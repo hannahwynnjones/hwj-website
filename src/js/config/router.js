@@ -13,67 +13,71 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
    .state('home', {
      url: '/',
      templateUrl: 'js/views/static/home.html'
-    //  controller: 'home as home'
    })
    .state('blogsIndex', {
-     url: '/blogsindex',
+     url: '/blogs',
      templateUrl: 'js/views/blogs/index.html',
      controller: 'BlogsIndexCtrl as blogsIndex'
    })
    .state('blogsNew', {
-     url: '/blogsnew',
+     url: '/blogs/new',
      templateUrl: 'js/views/blogs/new.html',
      controller: 'BlogsNewCtrl as blogsNew'
    })
    .state('blogsShow', {
-     url: '/blogsshow/:id',
+     url: '/blogs/:id',
      templateUrl: 'js/views/blogs/show.html',
      controller: 'BlogsShowCtrl as blogsShow'
    })
    .state('blogsEdit', {
-     url: '/blogsshow/:id/edit',
+     url: '/blogs/:id/edit',
      templateUrl: 'js/views/blogs/edit.html',
      controller: 'BlogsEditCtrl as blogsEdit'
    })
    .state('projectsIndex', {
-     url: '/projectsindex',
+     url: '/projects',
      templateUrl: 'js/views/projects/index.html',
      controller: 'ProjectsIndexCtrl as projectsIndex'
    })
    .state('projectsNew', {
-     url: '/projectsnew',
+     url: '/projects/new',
      templateUrl: 'js/views/projects/new.html',
      controller: 'ProjectsNewCtrl as projectsNew'
    })
    .state('projectsShow', {
-     url: '/projectsshow/:id',
+     url: '/projects/:id',
      templateUrl: 'js/views/projects/show.html',
      controller: 'ProjectsShowCtrl as projectsShow'
    })
    .state('projectsEdit', {
-     url: '/projectsshow/:id/edit',
+     url: '/projects/:id/edit',
      templateUrl: 'js/views/projects/edit.html',
      controller: 'ProjectsEditCtrl as projectsEdit'
    })
    .state('login', {
      url: '/login',
      templateUrl: 'js/views/auth/login.html',
-     controller: 'LoginCtrl as login'
+     controller: 'AuthCtrl as auth'
    })
    .state('register', {
      url: '/register',
      templateUrl: 'js/views/auth/register.html',
-     controller: 'RegisterCtrl as register'
+     controller: 'AuthCtrl as auth'
    });
-  //  .state('profile', {
+  //  .state('profilesIndex', {
+  //    url: '/users',
+  //    templateUrl: 'js/views/users/index.html',
+  //    controller: 'ProfilesIndexCtrl as profilesIndex'
+  //  })
+  //  .state('profilesShow', {
   //    url: '/user/:id',
   //    templateUrl: 'js/views/users/show.html',
-  //    controller: 'ProfileCtrl as profile'
+  //    controller: 'ProfilesShowCtrl as profilesShow'
   //  })
-  //  .state('editProfile', {
+  //  .state('profilesEdit', {
   //    url: '/user/:id/edit',
   //    templateUrl: 'js/views/users/edit.html',
-  //    controller: 'EditCtrl as editProfile'
+  //    controller: 'ProfilesEditCtrl as profilesEdit'
   //  });
 
 

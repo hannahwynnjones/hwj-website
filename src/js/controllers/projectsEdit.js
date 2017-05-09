@@ -1,6 +1,6 @@
 angular
   .module('hwj')
-  .controller( 'ProjectsEditCtrl', ProjectsEditCtrl);
+  .controller('ProjectsEditCtrl', ProjectsEditCtrl);
 
 
 ProjectsEditCtrl.$inject = ['Project', '$stateParams', '$state'];
