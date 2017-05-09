@@ -1,29 +1,29 @@
-const Item = require('../models/item');
+const Blog = require('../models/blog');
 
 function indexRoute(req, res, next) {
-  Item
+  Blog
     .find()
     .populate('createdBy')
-    .then((items) => res.json(items))
+    .then((blogs) => res.json(blogs))
     .catch(next);
 }
 
 function createRoute(req, res, next) {
   if(req.file) req.body.image = req.file.filename;
   req.body.createdBy = req.user;
-  Item
+  Blog
     .create(req.body)
-    .then((item) => res.status(201).json(item))
+    .then((blog) => res.status(201).json(blog))
     .catch(next);
 }
 
 function showRoute(req, res, next) {
-  Item
+  Blog
     .findById(req.params.id)
     .populate('createdBy comments.createdBy')
-    .then((item) => {
-      if(!item) return res.notFound();
-      res.json(item);
+    .then((blog) => {
+      if(!blog) return res.notFound();
+      res.json(blog);
     })
     .catch(next);
 }
@@ -31,29 +31,29 @@ function showRoute(req, res, next) {
 function updateRoute(req, res, next) {
 
   if(req.file) req.body.image = req.file.filename;
-  Item
+  Blog
     .findById(req.params.id)
     .exec()
-    .then((item) => {
-      if(!item) return res.notFound();
+    .then((blog) => {
+      if(!blog) return res.notFound();
 
       for(const field in req.body) {
-        item[field] = req.body[field];
+        blog[field] = req.body[field];
       }
 
-      return item.save();
+      return blog.save();
     })
-    .then((item) => res.json(item))
+    .then((blog) => res.json(blog))
     .catch(next);
 }
 
 function deleteRoute(req, res, next) {
-  Item
+  Blog
     .findById(req.params.id)
     .exec()
-    .then((item) => {
-      if(!item) return res.notFound();
-      return item.remove();
+    .then((blog) => {
+      if(!blog) return res.notFound();
+      return blog.remove();
     })
     .then(() => res.status(204).end())
     .catch(next);
@@ -63,33 +63,33 @@ function createCommentRoute(req, res, next) {
 
   req.body.createdBy = req.user;
 
-  Item
+  Blog
     .findById(req.params.id)
     .exec()
-    .then((item) => {
-      if(!item) return res.notFound();
+    .then((blog) => {
+      if(!blog) return res.notFound();
 
-      const comment = item.comments.create(req.body);
-      item.comments.push(comment); // create an embedded record
-      return item.save()
+      const comment = blog.comments.create(req.body);
+      blog.comments.push(comment); // create an embedded record
+      return blog.save()
       .then(()=> res.json(comment));
     })
-    .then((item) => res.redirect(`/items/${item.id}`))
+    .then((blog) => res.redirect(`/blogs/${blog.id}`))
     .catch(next);
 }
 
 function deleteCommentRoute(req, res, next) {
 
-  Item
+  Blog
     .findById(req.params.id)
     .exec()
-    .then((item) => {
-      if(!item) return res.notFound();
+    .then((blog) => {
+      if(!blog) return res.notFound();
       // get the embedded record by it's id
-      const comment = item.comments.id(req.params.commentId);
+      const comment = blog.comments.id(req.params.commentId);
       comment.remove();
 
-      return item.save();
+      return blog.save();
     })
     .then(() => res.status(204).end())
     .catch(next);

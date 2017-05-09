@@ -5,9 +5,9 @@ mongoose.Promise = require('bluebird');
 mongoose.connect(dbURI);
 
 const User = require('../models/user');
-const Item = require('../models/item');
+const Blog = require('../models/blog');
 User.collection.drop();
-Item.collection.drop();
+Blog.collection.drop();
 
 User
   .create([{
@@ -24,19 +24,17 @@ User
   .then((users) => {
     console.log(`${users.length} users created!`);
 
-    return Item.create([{
+    return Blog.create([{
       name: 'Addidas Jumper',
       // imageSRC: '/images/seed-pics/Addidas.jpg',
-      description: 'Vinateg, mens jumper in perfect conditon - well loved!',
+      body: 'Vinateg, mens jumper in perfect conditon - well loved!',
       createdBy: users[0]
     }])
-.then((items) => {
-  console.log(`${items.length} items created!`);
+.then((blogs) => {
+  console.log(`${blogs.length} blogs created!`);
 });
   })
-    .then((requests) => {
-      console.log(`${requests.length} requests created!`);
-    })
+
     .catch((err) => {
       console.log(err);
     })

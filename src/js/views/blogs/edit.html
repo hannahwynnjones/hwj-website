@@ -1,0 +1,28 @@
+<h1>Edit a blog</h1>
+
+<div class="">
+  <div class="">
+    <div class="">
+
+      <h1>Edit Blog</h1>
+      <form name= "blogsEdit.blogForm" ng-submit="blogsEdit.update()">
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" ng-model="blogsEdit.blog.name">
+        </div>
+
+        <div>
+          <label for="body">Body</label>
+          <input type="text" id="body" name="body" ng-model="blogsEdit.blog.body">
+        </div>
+
+        <div>
+          <label for="base64">Image</label>
+          <input type="file" base64 name="base64" id="base64" ng-model="blogsEdit.blog.base64">
+        </div>
+
+          <button>Create Blog</button>
+      </form>
+    </div>
+  </div>
+</div>

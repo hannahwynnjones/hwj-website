@@ -2,7 +2,7 @@
 <html ng-app="hwj">
   <head>
     <meta charset="utf-8">
-    <title>hwj</title>
+    <title>Hannah Wynn Jones</title>
   <base href="/">
     <!-- inject:js -->
     <!-- endinject -->
@@ -14,20 +14,23 @@
     <nav>
       <ul>
         <li><a ui-sref="home">Home</a></li>
+        <li><a ui-sref="blogsIndex">blogsIndex</a></li>
+        <li ng-if="main.isAuthenticated()"><a ng-click="main.logout()" href="#">New Blog</a></li>
           </ul>
     </nav>
     <div class="message" ng-if="main.message">{{ main.message }}</div>
     <main ui-view></main>
 
-<div class="footer">
-  <ul>
+    <div class="footer">
+      <ul>
+        <li><a ui-sref="home">Home</a></li>
+        <li><a ui-sref="blogsNew">blogsNew</a></li>
 
-    <li ng-if="!main.isAuthenticated()"><a ui-sref="login">Login</a></li>
-    <li ng-if="!main.isAuthenticated()"><a ui-sref="register">Register</a></li>
-    <li ng-if="main.isAuthenticated()"><a ng-click="main.logout()" href="#">Logout</a></li>
-    
-  </ul>
-</div>
+        <li ng-if="!main.isAuthenticated()"><a ui-sref="login">Login</a></li>
+        <li ng-if="!main.isAuthenticated()"><a ui-sref="register">Register</a></li>
+        <li ng-if="main.isAuthenticated()"><a ng-click="main.logout()" href="#">Logout</a></li>
+      </ul>
+    </div>
 
   </body>
 </html>

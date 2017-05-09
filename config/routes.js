@@ -3,7 +3,7 @@ const auth = require('../controllers/auth');
 const secureRoute = require('../lib/secureRoute');
 const imageUpload = require('../lib/imageUpload');
 const userController = require('../controllers/user');
-const itemController = require('../controllers/item');
+const blogController = require('../controllers/blog');
 //secure route is not used yet, but can be added to functions so that it is checking whether the user is logged in or not eg editing or deleting files
 
 router.get('/', (req, res) => res.render('statics/index'));
@@ -16,21 +16,20 @@ router.route('/users/:id')
   .put(imageUpload, userController.update)
   .delete(secureRoute,userController.delete);
 
-router.route('/item')
-  .get(itemController.index)
-  .post(secureRoute, imageUpload, itemController.create);
+router.route('/blog')
+  .get(blogController.index)
+  .post(secureRoute, imageUpload, blogController.create);
 
-router.route('/item/:id')
-  .get(itemController.show)
-  .put(imageUpload, itemController.update)
-  // .post(requestController.create)
-  .delete(secureRoute,itemController.delete);
+router.route('/blog/:id')
+  .get(blogController.show)
+  .put(imageUpload, blogController.update)
+  .delete(secureRoute,blogController.delete);
 
-router.route('/item/:id/comments')
-  .post(secureRoute, itemController.createComment);
+router.route('/blog/:id/comments')
+  .post(secureRoute, blogController.createComment);
 
-router.route('/item/:id/comments/:commentId')
-  .delete(secureRoute,itemController.deleteComment);
+router.route('/blog/:id/comments/:commentId')
+  .delete(secureRoute,blogController.deleteComment);
 
 router.route('/profile')
   .get(secureRoute, userController.profile);

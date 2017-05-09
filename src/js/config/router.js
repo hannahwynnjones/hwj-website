@@ -12,23 +12,48 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider
    .state('home', {
      url: '/',
-     templateUrl: 'js/views/home.html'
+     templateUrl: 'js/views/static/home.html'
     //  controller: 'home as home'
    })
-  //  .state('itemsNew', {
-  //    url: '/new',
-  //    templateUrl: 'js/views/items/new.html',
-  //    controller: 'itemsNewCtrl as itemsNew'
+   .state('blogsIndex', {
+     url: '/blogsindex',
+     templateUrl: 'js/views/blogs/index.html',
+     controller: 'BlogsIndexCtrl as blogsIndex'
+   })
+   .state('blogsNew', {
+     url: '/blogsnew',
+     templateUrl: 'js/views/blogs/new.html',
+     controller: 'BlogsNewCtrl as blogsNew'
+   })
+   .state('blogsShow', {
+     url: '/blogshow/:id',
+     templateUrl: 'js/views/blogs/show.html',
+     controller: 'BlogsShowCtrl as blogsShow'
+   })
+   .state('blogEdit', {
+     url: '/blogshow/:id/edit',
+     templateUrl: 'js/views/blogs/edit.html',
+     controller: 'BlogsEditCtrl as blogsEdit'
+   })
+  //  .state('projectsIndex', {
+  //    url: '/projectsindex',
+  //    templateUrl: 'js/views/projects/index.html',
+  //    controller: 'ProjectsIndexCtrl as projectsIndex'
   //  })
-  //  .state('itemsShow', {
-  //    url: '/show/:id',
-  //    templateUrl: 'js/views/items/show.html',
-  //    controller: 'itemShowCtrl as show'
+  //  .state('projectsNew', {
+  //    url: '/projectsnew',
+  //    templateUrl: 'js/views/projects/new.html',
+  //    controller: 'ProjectsNewCtrl as projectsNew'
   //  })
-  //  .state('itemEdit', {
-  //    url: '/show/:id/edit',
-  //    templateUrl: 'js/views/items/edit.html',
-  //    controller: 'itemEditCtrl as edit'
+  //  .state('projectsShow', {
+  //    url: '/projectshow/:id',
+  //    templateUrl: 'js/views/projects/show.html',
+  //    controller: 'ProjectsShowCtrl as projectsShow'
+  //  })
+  //  .state('projectEdit', {
+  //    url: '/projectshow/:id/edit',
+  //    templateUrl: 'js/views/projects/edit.html',
+  //    controller: 'ProjectsEditCtrl as projectsEdit'
   //  })
    .state('login', {
      url: '/login',

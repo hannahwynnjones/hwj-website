@@ -10,7 +10,7 @@ function LoginCtrl($auth, $state) {
 
   function submit() {
     $auth.login(vm.credentials)
-      .then(() => $state.go('birdsIndex'));
+      .then(() => $state.go('blogsIndex'));
   }
 
   vm.submit = submit;

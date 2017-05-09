@@ -3,8 +3,7 @@ const s3 = require('../lib/s3');
 
 const commentSchema = new mongoose.Schema({
   content: {type: String, required: true},
-  createdBy: {type: mongoose.Schema.ObjectId, ref: 'User', required: true},
-  rating: {type: Number}
+  createdBy: {type: mongoose.Schema.ObjectId, ref: 'User', required: true}
 }, {
   timestamps: true
 });
@@ -14,34 +13,34 @@ commentSchema.methods.belongsTo = function commentBelongsTo(user) {
   return user.id === this.createdBy.toString();
 };
 
-const itemSchema = new mongoose.Schema({
+const blogSchema = new mongoose.Schema({
   name: {type: String, required: true},
   createdBy: {type: mongoose.Schema.ObjectId, ref: 'User', required: true},
   image: {type: String},
-  description: {type: String, required: true},
+  body: {type: String, required: true},
   comments: [commentSchema]
 });
 
-itemSchema.methods.belongsTo = function itemBelongsTo(user) {
+blogSchema.methods.belongsTo = function blogBelongsTo(user) {
   if(typeof this.createdBy.id === 'string') return this.createdBy.id === user.id;
   return user.id === this.createdBy.toString();
 };
 
-itemSchema
+blogSchema
   .path('image')
   .set(function getPreviousImage(image){
     this._image = this.image;
     return image;
   });
 
-itemSchema
+blogSchema
     .virtual('imageSRC')
     .get(function getImageSRC() {
       if(!this.image) return null;
       return `https://s3-eu-west-1.amazonaws.com/${process.env.AWS_BUCKET_NAME}/${this.image}`;
     });
 
-itemSchema.pre('save', function checkPreviousImage(next) {
+blogSchema.pre('save', function checkPreviousImage(next) {
   if(this.isModified('image') && this._image) {
     return s3.deleteObject({ Key: this._image }, next);
   }
@@ -49,9 +48,9 @@ itemSchema.pre('save', function checkPreviousImage(next) {
 });
 
 
-itemSchema.pre('remove', function deleteImage(next){
+blogSchema.pre('remove', function deleteImage(next){
   if (this.image) return s3.deleteObject({Key: this.image}, next);
   next();
 });
 
-module.exports = mongoose.model('Item', itemSchema);
+module.exports = mongoose.model('Blog', blogSchema);

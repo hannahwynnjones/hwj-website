@@ -1,0 +1,26 @@
+<div class="">
+  <div class="">
+    <div class="">
+
+      <h1>New Blog</h1>
+      <form name= "blogsNew.blogForm" ng-submit="blogsNew.create()">
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" ng-model="blogsNew.blog.name">
+        </div>
+
+        <div>
+          <label for="body">Body</label>
+          <input type="text" id="body" name="body" ng-model="blogsNew.blog.body">
+        </div>
+
+        <div>
+          <label for="base64">Image</label>
+          <input type="file" base64 name="base64" id="base64" ng-model="blogsNew.blog.base64">
+        </div>
+
+          <button>Create Blog</button>
+      </form>
+    </div>
+  </div>
+</div>
