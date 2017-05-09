@@ -1,0 +1,21 @@
+angular
+  .module('hwj')
+  .controller( 'ProjectsEditCtrl', ProjectsEditCtrl);
+
+
+ProjectsEditCtrl.$inject = ['Project', '$stateParams', '$state'];
+function ProjectsEditCtrl(Project, $stateParams, $state) {
+  const vm = this;
+
+  vm.project = Project.get($stateParams);
+
+  function projectsUpdate() {
+    vm.project.createdBy = vm.project.createdBy.id;
+
+    vm.project
+      .$update()
+      .then(() => $state.go('projectsShow', $stateParams));
+  }
+
+  vm.update = projectsUpdate;
+}

@@ -26,35 +26,35 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
      controller: 'BlogsNewCtrl as blogsNew'
    })
    .state('blogsShow', {
-     url: '/blogshow/:id',
+     url: '/blogsshow/:id',
      templateUrl: 'js/views/blogs/show.html',
      controller: 'BlogsShowCtrl as blogsShow'
    })
-   .state('blogEdit', {
-     url: '/blogshow/:id/edit',
+   .state('blogsEdit', {
+     url: '/blogsshow/:id/edit',
      templateUrl: 'js/views/blogs/edit.html',
      controller: 'BlogsEditCtrl as blogsEdit'
    })
-  //  .state('projectsIndex', {
-  //    url: '/projectsindex',
-  //    templateUrl: 'js/views/projects/index.html',
-  //    controller: 'ProjectsIndexCtrl as projectsIndex'
-  //  })
-  //  .state('projectsNew', {
-  //    url: '/projectsnew',
-  //    templateUrl: 'js/views/projects/new.html',
-  //    controller: 'ProjectsNewCtrl as projectsNew'
-  //  })
-  //  .state('projectsShow', {
-  //    url: '/projectshow/:id',
-  //    templateUrl: 'js/views/projects/show.html',
-  //    controller: 'ProjectsShowCtrl as projectsShow'
-  //  })
-  //  .state('projectEdit', {
-  //    url: '/projectshow/:id/edit',
-  //    templateUrl: 'js/views/projects/edit.html',
-  //    controller: 'ProjectsEditCtrl as projectsEdit'
-  //  })
+   .state('projectsIndex', {
+     url: '/projectsindex',
+     templateUrl: 'js/views/projects/index.html',
+     controller: 'ProjectsIndexCtrl as projectsIndex'
+   })
+   .state('projectsNew', {
+     url: '/projectsnew',
+     templateUrl: 'js/views/projects/new.html',
+     controller: 'ProjectsNewCtrl as projectsNew'
+   })
+   .state('projectsShow', {
+     url: '/projectsshow/:id',
+     templateUrl: 'js/views/projects/show.html',
+     controller: 'ProjectsShowCtrl as projectsShow'
+   })
+   .state('projectsEdit', {
+     url: '/projectsshow/:id/edit',
+     templateUrl: 'js/views/projects/edit.html',
+     controller: 'ProjectsEditCtrl as projectsEdit'
+   })
    .state('login', {
      url: '/login',
      templateUrl: 'js/views/auth/login.html',

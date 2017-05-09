@@ -1,14 +1,14 @@
 angular
   .module('hwj')
-  .controller( 'BlogsIndexCtrl', BlogsIndexCtrl);
+  .controller( 'ProjectsIndexCtrl', ProjectsIndexCtrl);
 
-BlogsIndexCtrl.$inject = ['Blog', 'User', '$state', '$auth'];
-function BlogsIndexCtrl(Blog, User, $state, $auth) {
+ProjectsIndexCtrl.$inject = ['Project', 'User', '$state', '$auth'];
+function ProjectsIndexCtrl(Project, User, $state, $auth) {
   const vm = this;
   if ($auth.getPayload()) vm.currentUser = User.get({ id: $auth.getPayload().id });
   console.log(vm.currentUser);
   vm.isAuthenticated = $auth.isAuthenticated;
   // const currentUser = vm.currentUser;
   vm.user = User.query();
-  vm.all = Blog.query();
+  vm.all = Project.query();
 }

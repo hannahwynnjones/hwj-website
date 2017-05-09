@@ -1,48 +1,68 @@
-<div class="form form-style-8">
+<div class="">
+  <div class="">
+    <div class="">
+      <h1>Register</h1>
 
-<h2>REGISTER</h2>
-<form name="register.registerForm" ng-submit="register.createUser()" novalidate>
+      <form name="auth.registerForm" ng-submit="auth.register()">
 
-  <div ng-messages="register.registerForm.username.$error" role="alert" ng-show="(register.registerForm.username.$touched) &&(register.registerForm.username.$invalid)">
-    <div ng-message="required"> Username is required </div>
+        <div>
+          <label for="username">Username</label>
+          <input type="text" name="username" ng-model="auth.user.username" id="username" required>
+        </div>
+        <div ng-messages="auth.registerForm.username.$error" role="alert" ng-show="(auth.registerForm.username.$touched) &&(auth.registerForm.username.$invalid)">
+          <div style="color:red;" ng-message="required"> A valid username is required </div>
+        </div>
+
+        <div>
+          <label for="email">Email</label>
+          <input type="text" name="email" id="email" ng-model="auth.user.email" ng-pattern="/@/" required>
+        </div>
+
+        <div ng-show="auth.registerForm.email.$touched &&(auth.registerForm.email.$invalid)" ng-messages="auth.registerForm.email.$error" role="alert">
+          <div style="color:red;" ng-message="required"> Email is required </div>
+          <div style="color:red;" ng-message="pattern">Please enter a valid email.</div>
+        </div>
+
+        <div>
+          <label for="first_name">First Name</label>
+          <input type="text" name="first_name" ng-model="auth.user.first_name" id="first_name">
+        </div>
+        <div ng-messages="auth.registerForm.first_name.$error" role="alert" ng-show="(auth.registerForm.first_name.$touched) &&(auth.registerForm.first_name.$invalid)">
+          <div style="color:red;" ng-message="required"> A valid first name is required </div>
+        </div>
+        <div>
+          <label for="second_name">Second Name</label>
+          <input type="text" name="second_name" ng-model="auth.user.second_name" id="second_name">
+        </div>
+        <div ng-messages="auth.registerForm.second_name.$error" role="alert" ng-show="(auth.registerForm.second_name.$touched) &&(auth.registerForm.second_name.$invalid)">
+          <div style="color:red;" ng-message="required"> A valid second name is required </div>
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input type="password" name="password" ng-model="auth.user.password" required>
+        </div>
+        <div ng-messages="auth.registerForm.password.$error" role="alert" ng-show="(auth.registerForm.password.$touched) &&(auth.registerForm.password.$invalid)">
+          <div style="color:red;" ng-message="required"> Password is required </div>
+        </div>
+
+        <div>
+          <label for="passwordConfirmation">Password Confirmation</label>
+          <input type="password" name="passwordConfirmation" ng-model="auth.user.passwordConfirmation" required>
+        </div>
+        <div ng-messages="auth.registerForm.passwordConfirmation.$error" role="alert" ng-show="(auth.registerForm.passwordConfirmation.$touched) &&(auth.registerForm.passwordConfirmation.$invalid)">
+          <div style="color:red;" ng-message="required">Confirmation is required </div>
+        </div>
+
+      <div>
+        <label for="base64">Image</label>
+        <input type="file" base64 name="base64" id="base64" ng-model="auth.user.base64">
+      </div>
+
+      <div class="authButton">
+        <button >Register</button>
+      </div>
+
+      </form>
+    </div>
   </div>
-  <div ng-show="register.registerForm.email.$touched &&(register.registerForm.email.$invalid)" ng-messages="register.registerForm.email.$error" role="alert">
-    <div ng-message="required"> Email is required </div>
-    <div ng-message="pattern">Please enter a valid email.</div>
-  </div>
-  <div ng-messages="register.registerForm.location.$error" role="alert" ng-show="(register.registerForm.location.$touched) &&(register.registerForm.location.$invalid)">
-    <div ng-message="required">Postcode is required </div>
-  </div>
-  <div ng-messages="register.registerForm.image.$error" role="alert" ng-show="(register.registerForm.image.$touched) &&(register.registerForm.image.$invalid)">
-    <div ng-message="required"> Image is required </div>
-  </div>
-  <div ng-messages="register.registerForm.password.$error" role="alert" ng-show="(register.registerForm.password.$touched) &&(register.registerForm.password.$invalid)">
-    <div ng-message="required"> Password is required </div>
-  </div>
-  <div ng-messages="register.registerForm.passwordConfirmation.$error" role="alert" ng-show="(register.registerForm.passwordConfirmation.$touched) &&(register.registerForm.passwordConfirmation.$invalid)">
-    <div ng-message="required">Confirmation is required </div>
-  </div>
-
-<!-- The INPUT FIELDS -->
-
-<label for="username">Username</label>
-<input type="text" name="username" ng-model="register.user.username" id="username" required>
-
-<label for="email">Email</label>
-<input type="text" name="email" id="email" ng-model="register.user.email" ng-pattern="/@/" required>
-
-<label for="location">Enter your adress</label>
-<input type="text" name="location" ng-model="register.user.location" required>
-
-<label for="image">Profile image</label>
-<input class="input-btn" type="file" base64 name="base64" id="image" ng-model="register.user.base64" required>
-
-<label for="password">Password</label>
-<input type="password" name="password" ng-model="register.user.password" required>
-
-<label for="passwordConfirmation">Password Confirmation</label>
-<input type="password" name="passwordConfirmation" ng-model="register.user.passwordConfirmation" required>
-
-<button>Register</button>
-</form>
 </div>

@@ -6,8 +6,10 @@ mongoose.connect(dbURI);
 
 const User = require('../models/user');
 const Blog = require('../models/blog');
+const Project = require('../models/project');
 User.collection.drop();
 Blog.collection.drop();
+Project.collection.drop();
 
 User
   .create([{
@@ -30,9 +32,23 @@ User
       body: 'Vinateg, mens jumper in perfect conditon - well loved!',
       createdBy: users[0]
     }])
-.then((blogs) => {
-  console.log(`${blogs.length} blogs created!`);
-});
+
+  .then((blogs) => {
+    console.log(`${blogs.length} blogs created!`);
+  });
+
+    return Project.create([{
+      name: 'Addidas Jumper',
+      // imageSRC: '/images/seed-pics/Addidas.jpg',
+      description: 'Vinateg, mens jumper in perfect conditon - well loved!',
+      link: 'www.awesomeproject.com',
+      createdBy: users[0]
+    }])
+
+  .then((projects) => {
+    console.log(`${projects.length} projects created!`);
+  });
+
   })
 
     .catch((err) => {

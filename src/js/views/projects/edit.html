@@ -1,1 +1,28 @@
-<h1>edit project page</h1>
+<h1>Edit a project</h1>
+
+<div class="">
+  <div class="">
+    <div class="">
+
+      <h1>Edit Project</h1>
+      <form name= "projectsEdit.projectForm" ng-submit="projectsEdit.update()">
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" ng-model="projectsEdit.project.name">
+        </div>
+
+        <div>
+          <label for="body">Body</label>
+          <input type="text" id="body" name="body" ng-model="projectsEdit.project.body">
+        </div>
+
+        <div>
+          <label for="base64">Image</label>
+          <input type="file" base64 name="base64" id="base64" ng-model="projectsEdit.project.base64">
+        </div>
+
+          <button>Create Project</button>
+      </form>
+    </div>
+  </div>
+</div>

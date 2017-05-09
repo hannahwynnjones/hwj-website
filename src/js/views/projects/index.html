@@ -1,6 +1,20 @@
-<h1>index of projects</h1>
+<h1>shows all projects</h1>
 
-<h2>Project 1</h2>
-<h2>Project 2</h2>
-<h2>Project 3</h2>
-<h2>Project 4</h2>
+<div class="">
+  <h3>Welcome back {{ projectsIndex.currentUser.first_name }}</h3>
+</div>
+
+<div class="">
+
+  <ul class="row">
+    <li ng-repeat="project in projectsIndex.all" class="col-md-6">
+      <div class="project">
+        <h2>{{ project.name }}</h2>
+          <img class="" ng-src="{{ projectsShow.project.user.image_src }}" alt="{{ projectsShow.project.user.username }}">
+
+        <p>Created by: <strong>{{ project.user.username }}</strong></p>
+        <button ui-sref="projectsShow({id: project.id})">View</button>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -1,30 +1,28 @@
 angular
   .module('hwj')
-  .controller('LoginCtrl', LoginCtrl)
-  .controller('RegisterCtrl', RegisterCtrl);
+  .controller('AuthCtrl', AuthCtrl);
 
-LoginCtrl.$inject = ['$auth', '$state'];
-function LoginCtrl($auth, $state) {
+AuthCtrl.$inject = ['$auth', '$state'];
+function AuthCtrl($auth, $state) {
   const vm = this;
-  vm.credentials = {};
 
-  function submit() {
-    $auth.login(vm.credentials)
-      .then(() => $state.go('blogsIndex'));
-  }
-
-  vm.submit = submit;
-}
-
-RegisterCtrl.$inject = ['$auth', '$state'];
-function RegisterCtrl($auth, $state) {
-  const vm = this;
-  vm.user = {};
-
-  function submit() {
+  function register() {
     $auth.signup(vm.user)
       .then(() => $state.go('login'));
   }
 
-  vm.submit = submit;
+  // function register() {
+  //   $auth.signup({ user: vm.user })
+  //         .$promise
+  //         .then(() => $state.go('login'));
+  // }
+
+  vm.register = register;
+
+  function login() {
+    $auth.login(vm.credentials)
+      .then(() => $state.go('tripsIndex'));
+  }
+
+  vm.login = login;
 }
