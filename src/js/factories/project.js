@@ -4,14 +4,8 @@ angular
 
 Project.$inject = ['$resource'];
 function Project($resource){
-  const Project = new $resource('/api/project/:id', { id: '@id'},
+  return new $resource('/api/projects/:id', { id: '@id'},
     { update: { method: 'PUT'}
     });
 
-  Project.prototype.location = function(){
-    if(this.location){
-      return this.location;
-    }
-  };
-  return Project;
 }

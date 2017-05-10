@@ -12,16 +12,16 @@ router.get('/', (req, res) => res.render('statics/index'));
 
 //================BLOGS===============================
 
-router.route('/blog')
+router.route('/blogs')
   .get(blogController.index)
   .post(secureRoute, imageUpload, blogController.create);
 
-router.route('/blog/:id')
+router.route('/blogs/:id')
   .get(blogController.show)
   .put(imageUpload, blogController.update)
   .delete(secureRoute,blogController.delete);
 
-router.route('/blog/:id/comments')
+router.route('/blogs/:id/comments')
   .post(secureRoute, blogController.createComment);
 
 router.route('/blog/:id/comments/:commentId')
@@ -29,20 +29,14 @@ router.route('/blog/:id/comments/:commentId')
 
   //================PROJECTS===============================
 
-router.route('/project')
+router.route('/projects')
   .get(projectController.index)
   .post(secureRoute, imageUpload, projectController.create);
 
-router.route('/project/:id')
+router.route('/projects/:id')
   .get(projectController.show)
   .put(imageUpload, projectController.update)
-  .delete(secureRoute,projectController.delete);
-
-router.route('/project/:id/comments')
-  .post(secureRoute, projectController.createComment);
-
-router.route('/project/:id/comments/:commentId')
-  .delete(secureRoute,projectController.deleteComment);
+  .delete(projectController.delete);
 
 //=======================PROFILES - USERS=========================
 

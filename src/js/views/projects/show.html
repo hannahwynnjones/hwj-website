@@ -1,6 +1,21 @@
 <h1>show project</h1>
 
-<h1>{{ projectsShow.project.name }}</h1>
-<h1>{{ projectsShow.project.createdBy }}</h1>
-<h1>{{ projectsShow.project.body }}</h1>
-<img class="" ng-src="{{ projectsShow.project.user.image_src }}" alt="{{ projectsShow.project.user.username }}">
+<h1>name: {{ projectsShow.project.name }}</h1>
+<h2>created by: {{ projectsShow.project.createdBy.username }}</h2>
+<h3>description: {{ projectsShow.project.description }}</h3>
+<p>image:</p>
+<img class="" ng-src="{{ projectsShow.project.imageSRC }}" alt="{{ projectsShow.project.name }}">
+
+
+<div class="">
+  <a ng-if="main.isAuthenticated() && projectsShow.project.createdBy.id === main.profilePageId" class="" ui-sref="projectsEdit({ id: projectsShow.project.id})">Edit Item</a>
+  <a ng-if="main.isAuthenticated() && projectsShow.project.createdBy.id === main.profilePageId" class="" ng-click="projectsShow.delete()">Delete Item</a>
+</div>
+
+<button class=" " ui-sref="projectsEdit({id: projectsShow.project.id})" ng-if="main.isAuthenticated() && projectsShow.currentUser.id === projectsShow.project.user.id">Edit</button>
+<button class=" " ng-click="projectsShow.delete()" ng-if="main.isAuthenticated() && main.currentUser.id === projectsShow.project.user.id">Delete</button>
+
+
+<h4>without auth</h4>
+  <a ui-sref="projectsEdit({ id: projectsShow.project.id})">Edit Item</a>
+<button class=" " ng-click="projectsShow.delete()" >Delete</button>

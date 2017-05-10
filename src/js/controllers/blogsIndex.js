@@ -8,10 +8,10 @@ function BlogsIndexCtrl(Blog, User, $state, $auth) {
   vm.user = User.query();
   vm.all = Blog.query();
 
-  if ($auth.getPayload()) vm.currentUser = User.get({ id: $auth.getPayload().id });
+  if ($auth.getPayload()) vm.currentUser = User.query({ id: $auth.getPayload().id });
 
   vm.isAuthenticated = $auth.isAuthenticated;
   const currentUser = vm.currentUser;
-  console.log(vm.currentUser);
+  console.log(vm.user, 'currentUser');
 
 }

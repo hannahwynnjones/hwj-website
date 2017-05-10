@@ -12,8 +12,8 @@
         </div>
 
         <div>
-          <label for="body">Body</label>
-          <input type="text" id="body" name="body" ng-model="projectsEdit.project.body">
+          <label for="description">Description</label>
+          <input type="text" id="description" name="description" ng-model="projectsEdit.project.description">
         </div>
 
         <div>
@@ -21,7 +21,12 @@
           <input type="file" base64 name="base64" id="base64" ng-model="projectsEdit.project.base64">
         </div>
 
-          <button>Create Project</button>
+        <div>
+          <label for="link">Link</label>
+          <input type="text" name="link" id="link" ng-model="projectsEdit.project.link">
+        </div>
+
+          <button>Update Project</button>
       </form>
     </div>
   </div>

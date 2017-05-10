@@ -1,25 +1,12 @@
 const mongoose = require('mongoose');
 const s3 = require('../lib/s3');
 
-const commentSchema = new mongoose.Schema({
-  content: {type: String, required: true},
-  createdBy: {type: mongoose.Schema.ObjectId, ref: 'User', required: true}
-}, {
-  timestamps: true
-});
-
-commentSchema.methods.belongsTo = function commentBelongsTo(user) {
-  if(typeof this.createdBy.id === 'string') return this.createdBy.id === user.id;
-  return user.id === this.createdBy.toString();
-};
-
 const projectSchema = new mongoose.Schema({
   name: {type: String, required: true},
   createdBy: {type: mongoose.Schema.ObjectId, ref: 'User', required: true},
   image: {type: String},
   description: {type: String, required: true},
-  link: {type: String, required: true},
-  comments: [commentSchema]
+  link: {type: String, required: true}
 });
 
 projectSchema.methods.belongsTo = function projectBelongsTo(user) {

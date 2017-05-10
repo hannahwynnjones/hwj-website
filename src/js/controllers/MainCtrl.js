@@ -7,8 +7,10 @@ function MainCtrl($rootScope, $state, $auth) {
   const vm = this;
 
   vm.isAuthenticated = $auth.isAuthenticated;
+  if($auth.getPayload()) vm.profilePageId = $auth.getPayload().userId;
+  console.log('hell', vm.profilePageId.user);
 
-  console.log('workigggg', vm.currentUser);
+  console.log('workigggg', vm.isAuthenticated);
 
   $rootScope.$on('error', (e, err) => {
     vm.stateHasChanged = false;
@@ -20,13 +22,10 @@ function MainCtrl($rootScope, $state, $auth) {
     if(vm.stateHasChanged) vm.message = null;
     if(!vm.stateHasChanged) vm.stateHasChanged = true;
     if($auth.getPayload()) vm.currentUser = $auth.getPayload();
-    console.log('workigggg', vm.currentUser);
 
     if($auth.getPayload()) vm.profilePageId = $auth.getPayload().userId;
-    vm.navIsOpen = false;
-
   });
-  // 
+  //
   // const protectedStates = ['blogsNew', 'blogsEdit'];
   //
   // $rootScope.$on('$stateChangeStart', (e, toState) => {

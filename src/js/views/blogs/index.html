@@ -10,9 +10,11 @@
     <li ng-repeat="blog in blogsIndex.all" class="col-md-6">
       <div class="blog">
         <h2>{{ blog.name }}</h2>
-          <img class="" ng-src="{{ blog.user.image_src }}" alt="{{ blog.user.username }}">
+          <img class="" ng-src="{{ blog.imageSRC }}" alt="{{ blog.name }}">
 
         <p>Created by: <strong>{{ blog.createdBy.username }}</strong></p>
+        <img class="" ng-src="{{ blog.createdBy.imageSRC }}" alt="{{ blog.createdBy.username }}">
+
         <button ui-sref="blogsShow({id: blog.id})">View</button>
       </div>
     </li>

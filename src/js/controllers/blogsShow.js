@@ -7,6 +7,8 @@ function BlogsShowCtrl(Blog, User, Comments, $stateParams, $state, $auth) {
   const vm = this;
   if ($auth.getPayload()) vm.currentUser = User.get({ id: $auth.getPayload().id });
 
+  console.log(vm.currentUser, 'heeyy');
+
   vm.blog = Blog.get($stateParams);
   vm.users = User.query();
 

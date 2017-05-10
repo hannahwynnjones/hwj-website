@@ -4,14 +4,7 @@ angular
 
 Blog.$inject = ['$resource'];
 function Blog($resource){
-  const Blog = new $resource('/api/blog/:id', { id: '@id'},
+  return new $resource('/api/blogs/:id', { id: '@id'},
     { update: { method: 'PUT'}
     });
-
-  Blog.prototype.location = function(){
-    if(this.location){
-      return this.location;
-    }
-  };
-  return Blog;
 }
