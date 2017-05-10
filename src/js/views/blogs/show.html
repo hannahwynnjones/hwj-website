@@ -13,7 +13,7 @@
       <h1>Comments</h1>
       <div class="">
         <ul>
-          <li ng-repeat="comment in blogsShow.blog.comments">{{ comment.body }} - <strong>{{ comment.user.username }}</strong>
+          <li ng-repeat="comment in blogsShow.blog.comments">{{ comment.content }} - <strong>{{ comment.user.username }}</strong>
             <button ng-click="blogsShow.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUser.id === comment.user.id">Delete</button>
           </li>
         </ul>
@@ -23,7 +23,7 @@
         <h2>Add Comment</h2>
         <br>
         <form ng-submit="blogsShow.addComment()">
-          <textarea type="text" name="body" ng-model="blogsShow.comment.body"></textarea>
+          <textarea type="text" name="content" ng-model="blogsShow.newComment.content"></textarea>
           <br>
           <button>Create</button>
         </form>

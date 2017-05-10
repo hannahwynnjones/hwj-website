@@ -13,14 +13,17 @@ Project.collection.drop();
 
 User
   .create([{
-
+    username: 'Bird',
+    password: 'p',
+    email: 'bird@bird',
+    passwordConfirmation: 'p'
+  },{
     username: 'Hannah',
     password: 'p',
     email: 'h@h',
     location: 'London',
     // profileImage: '/images/seed-pics/red.jpg',
     passwordConfirmation: 'p'
-
   }])
 
   .then((users) => {
@@ -35,7 +38,6 @@ User
 
   .then((blogs) => {
     console.log(`${blogs.length} blogs created!`);
-  });
 
     return Project.create([{
       name: 'Addidas Jumper',
@@ -43,11 +45,12 @@ User
       description: 'Vinateg, mens jumper in perfect conditon - well loved!',
       link: 'www.awesomeproject.com',
       createdBy: users[0]
-    }])
+    }]);
+  })
 
-  .then((projects) => {
-    console.log(`${projects.length} projects created!`);
-  });
+    .then((projects) => {
+      console.log(`${projects.length} projects created!`);
+    });
 
   })
 

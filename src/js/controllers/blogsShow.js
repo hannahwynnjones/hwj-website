@@ -10,7 +10,6 @@ function BlogsShowCtrl(Blog, User, Comments, $stateParams, $state, $auth) {
   vm.blog = Blog.get($stateParams);
   vm.users = User.query();
 
-  console.log(vm.blog);
 //===================DELETE Blog==============
 
   function blogsDelete() {
@@ -28,28 +27,27 @@ function BlogsShowCtrl(Blog, User, Comments, $stateParams, $state, $auth) {
 
 //===============COMMENTS======================
 
-  function addComment() {
-    vm.comment.blog_id = vm.blog.id;
+  function addComment(){
 
     Comments
-    .save( {itemId: vm.item.id}, vm.newComment)
-      .$promise
-      .then((comment) => {
-        vm.blog.comments.push(comment);
-        vm.newComment = {};
-      });
+    .save( {blogId: vm.blog.id}, vm.newComment)
+    .$promise
+    .then((comment)=>{
+      vm.blog.comments.push(comment);
+      vm.newComment = {};
+    });
   }
 
   vm.addComment = addComment;
 
-  function deleteComment(comment) {
-    Comment
-      .delete({ id: comment.id })
-      .$promise
-      .then(() => {
-        const index = vm.blog.comments.indexOf(comment);
-        vm.blog.comments.splice(index, 1);
-      });
+  function deleteComment(comment){
+    Comments
+    .delete({blogId: vm.blog.id, id: comment.id})
+    .$promise
+    .then(()=>{
+      const index = vm.blog.comments.indexOf(comment);
+      vm.blog.comments.splice(index, 1);
+    });
   }
 
   vm.deleteComment = deleteComment;

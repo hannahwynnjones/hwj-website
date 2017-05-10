@@ -70,7 +70,7 @@ function createCommentRoute(req, res, next) {
       if(!blog) return res.notFound();
 
       const comment = blog.comments.create(req.body);
-      blog.comments.push(comment); // create an embedded record
+      blog.comments.push(comment);
       return blog.save()
       .then(()=> res.json(comment));
     })
