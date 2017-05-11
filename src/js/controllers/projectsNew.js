@@ -2,11 +2,10 @@ angular
   .module('hwj')
   .controller( 'ProjectsNewCtrl', ProjectsNewCtrl);
 
-ProjectsNewCtrl.$inject = ['Project', 'User', '$state'];
-function ProjectsNewCtrl(Project, User, $state){
+ProjectsNewCtrl.$inject = ['Project', '$state'];
+function ProjectsNewCtrl(Project, $state){
   const vm = this;
   vm.project = {};
-  vm.users = User.query();
 
   function projectsCreate() {
     if(vm.projectForm.$valid) {
@@ -15,7 +14,6 @@ function ProjectsNewCtrl(Project, User, $state){
         .$promise
         .then(() => $state.go('projectsIndex'));
     }
-
   }
 
   vm.create = projectsCreate;

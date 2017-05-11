@@ -4,6 +4,7 @@ function indexRoute(req, res, next) {
   Blog
     .find()
     .populate('createdBy')
+    .exec()
     .then((blogs) => res.json(blogs))
     .catch(next);
 }
@@ -21,6 +22,7 @@ function showRoute(req, res, next) {
   Blog
     .findById(req.params.id)
     .populate('createdBy comments.createdBy')
+    .exec()
     .then((blog) => {
       if(!blog) return res.notFound();
       res.json(blog);
@@ -74,7 +76,7 @@ function createCommentRoute(req, res, next) {
       return blog.save()
       .then(()=> res.json(comment));
     })
-    .then((blog) => res.redirect(`/blogs/${blog.id}`))
+    // .then((blog) => res.redirect(`/blogs/${blog.id}`))
     .catch(next);
 }
 
@@ -94,8 +96,6 @@ function deleteCommentRoute(req, res, next) {
     .then(() => res.status(204).end())
     .catch(next);
 }
-
-
 
 module.exports = {
   index: indexRoute,

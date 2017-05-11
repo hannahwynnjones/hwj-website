@@ -2,15 +2,12 @@ angular
   .module('hwj')
   .controller( 'BlogsShowCtrl', BlogsShowCtrl);
 
-BlogsShowCtrl.$inject = ['Blog', 'User', 'Comments', '$stateParams', '$state', '$auth'];
-function BlogsShowCtrl(Blog, User, Comments, $stateParams, $state, $auth) {
+BlogsShowCtrl.$inject = ['Blog', 'Comments', '$stateParams', '$state'];
+function BlogsShowCtrl(Blog, Comments, $stateParams, $state) {
   const vm = this;
-  if ($auth.getPayload()) vm.currentUser = User.get({ id: $auth.getPayload().id });
-
-  console.log(vm.currentUser, 'heeyy');
-
+  // if ($auth.getPayload()) vm.currentUser = User.get({ id: $auth.getPayload().id });
+  vm.newComment = {};
   vm.blog = Blog.get($stateParams);
-  vm.users = User.query();
 
 //===================DELETE Blog==============
 
@@ -22,21 +19,18 @@ function BlogsShowCtrl(Blog, User, Comments, $stateParams, $state, $auth) {
 
   vm.delete = blogsDelete;
 
-  // function blogsUpdate() {
-  //   Blog
-  //     .update({id: vm.blog.id, blog: vm.blog });
-  // }
-
 //===============COMMENTS======================
 
   function addComment(){
-
+    console.log(vm.newComment, 'new comment');
     Comments
-    .save( {blogId: vm.blog.id}, vm.newComment)
+    .save( { blogId: vm.blog.id }, vm.newComment)
     .$promise
     .then((comment)=>{
       vm.blog.comments.push(comment);
       vm.newComment = {};
+      console.log(vm.newComment, 'new comment2');
+
     });
   }
 
@@ -44,7 +38,7 @@ function BlogsShowCtrl(Blog, User, Comments, $stateParams, $state, $auth) {
 
   function deleteComment(comment){
     Comments
-    .delete({blogId: vm.blog.id, id: comment.id})
+    .delete({ blogId: vm.blog.id, id: comment.id })
     .$promise
     .then(()=>{
       const index = vm.blog.comments.indexOf(comment);

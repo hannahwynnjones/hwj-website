@@ -10,7 +10,7 @@ function BlogsEditCtrl(Blog, $stateParams, $state) {
   vm.blog = Blog.get($stateParams);
 
   function blogsUpdate() {
-    vm.blog.createdBy = vm.blog.createdBy.id;
+    // vm.blog.createdBy = vm.blog.createdBy.id;
 
     vm.blog
       .$update()

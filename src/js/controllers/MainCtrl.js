@@ -10,7 +10,7 @@ function MainCtrl($rootScope, $state, $auth) {
 
   vm.isAuthenticated = $auth.isAuthenticated;
 
-  if($auth.getPayload()) vm.profilePageId = $auth.getPayload().userId;
+  // if($auth.getPayload()) vm.profilePageId = $auth.getPayload().userId;
 
   $rootScope.$on('error', (e, err) => {
     vm.stateHasChanged = false;
@@ -22,6 +22,8 @@ function MainCtrl($rootScope, $state, $auth) {
     if(vm.stateHasChanged) vm.message = null;
     if(!vm.stateHasChanged) vm.stateHasChanged = true;
     vm.isNavCollapsed = true;
+    if($auth.getPayload()) vm.profilePageId = $auth.getPayload().userId;
+
   });
 
 

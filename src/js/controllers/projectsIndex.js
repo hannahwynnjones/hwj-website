@@ -2,14 +2,10 @@ angular
   .module('hwj')
   .controller( 'ProjectsIndexCtrl', ProjectsIndexCtrl);
 
-ProjectsIndexCtrl.$inject = ['Project', 'User', '$state', '$auth', '$uibModal', '$stateParams'];
-function ProjectsIndexCtrl(Project, User, $state, $auth, $uibModal, $stateParams) {
+ProjectsIndexCtrl.$inject = ['Project', '$state', '$uibModal', '$stateParams'];
+function ProjectsIndexCtrl(Project, $state, $uibModal, $stateParams) {
   const vm = this;
-  if ($auth.getPayload()) vm.currentUser = User.query({ id: $auth.getPayload().id });
-  console.log(vm.currentUser);
-  vm.isAuthenticated = $auth.isAuthenticated;
-  // const currentUser = vm.currentUser;
-  vm.user = User.query();
+  // if ($auth.getPayload()) vm.currentUser = User.get({ id: $auth.getPayload().id });
   vm.all = Project.query();
 
   vm.myInterval = 5000; // The time delay between each slide
