@@ -1,6 +1,6 @@
 <h1>shows all projects</h1>
 
-<div class="">
+<!-- <div class="">
 
   <ul class="row">
     <li ng-repeat="project in projectsIndex.all" class="col-md-6">
@@ -13,4 +13,18 @@
       </div>
     </li>
   </ul>
+</div> -->
+
+
+<div uib-carousel active="projectsIndex.active" interval="projectsIndex.myInterval" no-wrap="projectsIndex.noWrapSlides">
+  <div uib-slide ng-repeat="project in projectsIndex.all" index="$index">
+    <img ng-src="{{ project.imageSRC }}" style="margin:auto;">
+    <div class="carousel-caption">
+      <h4>{{ project.name }}</h4>
+      <p><strong>{{ project.description }}</strong></p>
+      <button ng-click="projectsIndex.open({id: project.id})">Viewid</button>
+      <button ng-click="projectsIndex.open()">View</button>
+
+    </div>
+  </div>
 </div>

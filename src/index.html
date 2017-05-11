@@ -11,16 +11,35 @@
   </head>
   <body ng-controller="MainCtrl as main">
 
-    <nav>
-      <ul>
-        <li><a ui-sref="home">Home</a></li>
-        <li><a ui-sref="blogsIndex">blogsIndex</a></li>
-        <li><a ui-sref="projectsIndex">projectsIndex</a></li>
-        <li ng-if="main.isAuthenticated()"><a ng-click="main.logout()" href="#">New Blog</a></li>
-          </ul>
+    <!-- ===============NAV BAR ======================= -->
+
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" ng-click="main.isNavCollapsed = !main.isNavCollapsed">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Hannah Wynn Jones</a>
+      </div>
+      <div class="collapse navbar-collapse" uib-collapse="main.isNavCollapsed">
+        <ul class="nav navbar-nav">
+          <li><a ui-sref="home">Home</a></li>
+
+          <li ng-if="main.isAuthenticated()"><a ui-sref="blogsIndex">blogsIndex</a></li>
+          <li ng-if="main.isAuthenticated()"><a ui-sref="projectsIndex">projectsIndex</a></li>
+          <li ng-if="!main.isAuthenticated()"><a ui-sref="login">Login</a></li>
+          <li ng-if="!main.isAuthenticated()"><a ui-sref="register">Register</a></li>
+          <li ng-if="main.isAuthenticated()"><a ng-click="main.logout()" href="#">Logout</a></li>
+        </ul>
+      </div>
     </nav>
+
     <div class="message" ng-if="main.message">{{ main.message }}</div>
     <main ui-view></main>
+
+    <!-- ======================FOOTER ======================= -->
 
     <div class="footer">
       <ul>

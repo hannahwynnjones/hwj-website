@@ -2,17 +2,17 @@ angular
   .module('hwj')
   .controller( 'ProjectsShowCtrl', ProjectsShowCtrl);
 
-ProjectsShowCtrl.$inject = ['Project', 'User', '$stateParams', '$state', '$auth'];
-function ProjectsShowCtrl(Project, User, $stateParams, $state, $auth) {
+ProjectsShowCtrl.$inject = ['Project', 'User', '$stateParams', '$state', '$auth', '$uibModalInstance'];
+function ProjectsShowCtrl(Project, User, $stateParams, $state, $auth, $uibModalInstance) {
   const vm = this;
-  if ($auth.getPayload()) vm.currentUser = User.get({ id: $auth.getPayload().id });
+  if ($auth.getPayload()) vm.currentUser = User.query({ id: $auth.getPayload().id });
 
-  vm.project = Project.get($stateParams);
+  vm.project = Project.query($stateParams);
   vm.users = User.query();
 
-  console.log(User.get({ id: $auth.getPayload().id }), 'vm.currentUser.id');
+  console.log(User.query({ id: $auth.getPayload().id }), 'vm.currentUser.id');
 
-  console.log(vm.project);
+  console.log(vm.project, 'vm.project');
 
 //===================DELETE Project==============
 
@@ -28,4 +28,11 @@ function ProjectsShowCtrl(Project, User, $stateParams, $state, $auth) {
   //   Project
   //     .update({id: vm.project.id, project: vm.project });
   // }
+//==============CLOSE MODAL=================
+
+  function closeModal() {
+    $uibModalInstance.close();
+  }
+
+  vm.close = closeModal;
 }

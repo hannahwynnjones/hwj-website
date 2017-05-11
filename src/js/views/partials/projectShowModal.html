@@ -1,0 +1,14 @@
+<div class="modal-header">
+  <h3 class="modal-title">{{ projectsIndex.project.name }}</h3>
+</div>
+<div class="modal-body">
+  <h1>name: {{ projectsShow.project.name }}</h1>
+  <h2>created by: {{ projectsShow.project.createdBy.username }}</h2>
+  <h3>description: {{ projectsShow.project.description }}</h3>
+  <p>image:</p>
+  <img class="" ng-src="{{ projectsShow.project.imageSRC }}" alt="{{ projectsShow.project.name }}">
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" ng-click="projectsIndex.close()">Back</button>
+
+</div>
