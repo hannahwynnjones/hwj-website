@@ -4,6 +4,7 @@ function indexRoute(req, res, next) {
   Project
     .find()
     .populate('createdBy')
+    .exec()
     .then((projects) => res.json(projects))
     .catch(next);
 }
@@ -21,6 +22,7 @@ function showRoute(req, res, next) {
   Project
     .findById(req.params.id)
     .populate('createdBy')
+    .exec()
     .then((project) => {
       if(!project) return res.notFound();
       res.json(project);

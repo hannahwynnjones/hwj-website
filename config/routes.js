@@ -2,7 +2,7 @@ const router = require('express').Router();
 const auth = require('../controllers/auth');
 const secureRoute = require('../lib/secureRoute');
 const imageUpload = require('../lib/imageUpload');
-const userController = require('../controllers/user');
+// const userController = require('../controllers/user');
 const blogController = require('../controllers/blog');
 const projectController = require('../controllers/project');
 //secure route is not used yet, but can be added to functions so that it is checking whether the user is logged in or not eg editing or deleting files
@@ -24,7 +24,7 @@ router.route('/blogs/:id')
 router.route('/blogs/:id/comments')
   .post(secureRoute, blogController.createComment);
 
-router.route('/blog/:id/comments/:commentId')
+router.route('/blogs/:id/comments/:commentId')
   .delete(secureRoute,blogController.deleteComment);
 
   //================PROJECTS===============================
@@ -37,19 +37,19 @@ router.route('/projects/:id')
   .get(projectController.show)
   .put(imageUpload, projectController.update)
   .delete(projectController.delete);
-
-//=======================PROFILES - USERS=========================
-
-router.route('/profile')
-  .get(secureRoute, userController.profile);
-
-router.route('/users')
-  .get(userController.index); //landing page
-
-router.route('/users/:id')
-  .get(userController.show)
-  .put(imageUpload, userController.update)
-  .delete(secureRoute,userController.delete);
+//
+// //=======================PROFILES - USERS=========================
+//
+// router.route('/profile')
+//   .get(secureRoute, userController.profile);
+//
+// router.route('/users')
+//   .get(userController.index); //landing page
+//
+// router.route('/users/:id')
+//   .get(userController.show)
+//   .put(imageUpload, userController.update)
+//   .delete(secureRoute,userController.delete);
 
 //=====================AUTH================================
 

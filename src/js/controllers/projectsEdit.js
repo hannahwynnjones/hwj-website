@@ -10,7 +10,6 @@ function ProjectsEditCtrl(Project, $stateParams, $state) {
   vm.project = Project.get($stateParams);
 
   function projectsUpdate() {
-    vm.project.createdBy = vm.project.createdBy.id;
 
     vm.project
       .$update()

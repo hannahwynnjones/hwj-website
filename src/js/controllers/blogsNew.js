@@ -2,11 +2,11 @@ angular
   .module('hwj')
   .controller( 'BlogsNewCtrl', BlogsNewCtrl);
 
-BlogsNewCtrl.$inject = ['Blog', 'User', '$state'];
-function BlogsNewCtrl(Blog, User, $state){
+BlogsNewCtrl.$inject = ['Blog', '$state'];
+function BlogsNewCtrl(Blog, $state){
   const vm = this;
   vm.blog = {};
-  vm.users = User.query();
+  // vm.users = User.query();
 
   function blogsCreate() {
     if(vm.blogForm.$valid) {
@@ -15,7 +15,6 @@ function BlogsNewCtrl(Blog, User, $state){
         .$promise
         .then(() => $state.go('blogsIndex'));
     }
-
   }
 
   vm.create = blogsCreate;
