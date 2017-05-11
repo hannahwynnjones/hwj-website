@@ -1,4 +1,63 @@
-// Import all of your scss files here
-img {
-  height: 300px;
+@import 'main';
+// @import 'templates';
+// @import 'colorSchemes';
+// @import 'responsive';
+
+body {
+  padding: 20px;
+  min-height: 100%;
+  margin: 0 auto -50px;
 }
+
+main {
+  // margin-top: 50px;
+  margin: 0px, 200px, 0, 200px;
+  text-align: center;
+  display: block;
+
+}
+
+/////////////////  HOME   ////////////////////////////
+
+.homeImage {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1484108678824-e6543e2e4230?dpr=1&auto=format&fit=crop&w=1199&h=797&q=80&cs=tinysrgb&crop=&bg=');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.title {
+  font-size: 50px;
+  font-family: 'Gurmukhi MN', cursive;
+  position: absolute;
+  text-align: center;
+  width: 600px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  .l-line {
+    border-style: solid;
+    width: 360px;
+    margin: 5px auto;
+  }
+  .hannah {
+    letter-spacing: 18px;
+    font-size: 60px;
+  }
+  .wj {
+    letter-spacing: 2px;
+  }
+}
+
+
+//////////////////    BLOGS INDEX  //////////////////////
+//////////////////    BLOGS SHOW  //////////////////////
+//////////////////    BLOGS NEW  //////////////////////
+//////////////////    BLOGS EDIT  //////////////////////
+//////////////////    PROJECTS INDEX  //////////////////////
+//////////////////    PROJECTS SHOW  //////////////////////
+//////////////////    PROJECTS NEW  //////////////////////
+//////////////////    PROJECTS EDIT  //////////////////////
+
+/////////////////    CONTACT   /////////////////////

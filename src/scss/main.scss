@@ -1,0 +1,56 @@
+// @import 'templates';
+// @import 'colorSchemes';
+// @import 'responsive';
+
+//large line
+.line {
+  border-style: solid;
+  width: 800px;
+  margin: 50px auto;
+}
+
+img {
+  height: 300px;
+}
+
+.centered-styles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+//////////////////NAV BAR/////////////////////
+
+.navbar {
+  position: fixed;
+  z-index:50;
+  background-color: rgba(43, 168, 74, 0.3); //navbar colour
+  height:50px;
+  // padding: 10px 0;
+  text-align: center;
+  width:100%;
+  color: black;
+}
+
+//////////////////////////////FOOTER //////////////////////////////////
+.footer {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+  height: 50px;
+  ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        display: inline-block;
+        float: left;
+        margin-left: 20px;
+        line-height: 40px;
+      }
+  }
+}
