@@ -9,7 +9,8 @@ function MainCtrl($rootScope, $state, $auth) {
   vm.isNavCollapsed = true;
 
   vm.isAuthenticated = $auth.isAuthenticated;
-
+  if($auth.getPayload()) vm.currentUserId = $auth.getPayload().userId;
+  console.log(vm.currentUserId, 'currentUserId');
   // if($auth.getPayload()) vm.profilePageId = $auth.getPayload().userId;
 
   $rootScope.$on('error', (e, err) => {
@@ -22,7 +23,8 @@ function MainCtrl($rootScope, $state, $auth) {
     if(vm.stateHasChanged) vm.message = null;
     if(!vm.stateHasChanged) vm.stateHasChanged = true;
     vm.isNavCollapsed = true;
-    if($auth.getPayload()) vm.profilePageId = $auth.getPayload().userId;
+    if($auth.getPayload()) vm.currentUserId = $auth.getPayload().userId;
+    console.log(vm.currentUserId, 'currentUserId');
 
   });
 

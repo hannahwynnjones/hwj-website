@@ -1,0 +1,132 @@
+//guidelines
+.guidex {
+  // border-style: solid;
+  // color: yellow;
+  width: 1000px;
+  top: 50%;
+  left: 10%;
+  position: absolute;
+}
+
+.guidey {
+  // border-style: solid;
+  // color: yellow;
+  height: 800px;
+  top: 10%;
+  left: 50%;
+  position: absolute;
+}
+
+.homeImage {
+  // background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1484108678824-e6543e2e4230?dpr=1&auto=format&fit=crop&w=1199&h=797&q=80&cs=tinysrgb&crop=&bg=');
+  background-image: url('https://images.unsplash.com/photo-1494069713855-5c5abfb81910?dpr=1&auto=format&fit=crop&w=1199&h=799&q=80&cs=tinysrgb&crop=&bg=');
+  // background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1445433525584-d665c6ca0cb2?dpr=1&auto=format&fit=crop&w=1199&h=799&q=80&cs=tinysrgb&crop=&bg=');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+///////  Left LOGO  /////////////
+
+.title {
+  font-size: 50px;
+  font-family: 'Gurmukhi MN', cursive;
+  position: absolute;
+  text-align: center;
+  width: 600px;
+  top: 23%;
+  left: 17%;
+  transform: translate(-50%, -50%);
+  color: black;
+  .l-line {
+    border-style: solid;
+    width: 360px;
+    margin: 5px auto;
+  }
+  .hannah {
+    letter-spacing: 18px;
+    font-size: 60px;
+  }
+  .wj {
+    letter-spacing: 2px;
+  }
+}
+//junior web developer
+.fs {
+  letter-spacing: 5px;
+  font-size: 30px;
+  font-family: 'Gurmukhi MN', cursive;
+  text-transform: uppercase;
+  font-weight: bold;
+  position: absolute;
+  text-align: center;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+}
+
+///////////////////  RIGHT SIDE ////
+
+.contact-icons {
+  top: 75%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  a {
+    width:5%;
+    margin-left: 5px;
+    color: #000;
+    i {
+      font-size: 45px;
+      &.fa-file-text-o {
+        font-size: 28px;
+      }
+    }
+    &:hover {
+      color:#b30059;
+    }
+  }
+}
+
+.project-div {
+  top: 35%;
+  left: 7%;
+  position: absolute;
+  // background-color: blue;
+  text-align: left;
+  color: black;
+  padding-left: 15px;
+  h2 {
+    margin-bottom: 17px;
+  }
+  p {
+    font-size: 16px;
+    a {
+      color: black;
+      text-decoration:none;
+      letter-spacing: 2px;
+      &:hover {
+        color:#b30059;
+        text-decoration:none;
+      }
+    }
+
+  }
+}
+
+.bl {
+  margin-top: 30px;
+  font-family: 'Gurmukhi MN', cursive;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.line-proj {
+  border-style: solid;
+  height: 280px;
+  color: black;
+  top: 38%;
+  left: 6%;
+  position: absolute;
+}

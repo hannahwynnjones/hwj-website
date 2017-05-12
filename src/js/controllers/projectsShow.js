@@ -2,12 +2,12 @@ angular
   .module('hwj')
   .controller( 'ProjectsShowCtrl', ProjectsShowCtrl);
 
-ProjectsShowCtrl.$inject = ['Project', '$stateParams', '$state', '$auth', '$uibModalInstance'];
-function ProjectsShowCtrl(Project, $stateParams, $state, $auth, $uibModalInstance) {
+ProjectsShowCtrl.$inject = ['Project', '$stateParams', '$state', '$auth'];
+function ProjectsShowCtrl(Project, $stateParams, $state, $auth) {
   const vm = this;
   // if ($auth.getPayload()) vm.currentUser = User.get({ id: $auth.getPayload().id });
 
-  vm.project = Project.query($stateParams);
+  vm.project = Project.get($stateParams);
 
 //===================DELETE Project==============
 
@@ -20,10 +20,10 @@ function ProjectsShowCtrl(Project, $stateParams, $state, $auth, $uibModalInstanc
   vm.delete = projectsDelete;
 
 //==============CLOSE MODAL=================
-
-  function closeModal() {
-    $uibModalInstance.close();
-  }
-
-  vm.close = closeModal;
+  //
+  // function closeModal() {
+  //   $uibModalInstance.close();
+  // }
+  //
+  // vm.close = closeModal;
 }

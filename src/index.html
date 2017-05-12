@@ -29,12 +29,12 @@
       <div class="nbar collapse navbar-collapse" uib-collapse="main.isNavCollapsed">
         <ul class="nav navbar-nav my-nav">
 
-          <li ng-if="main.isAuthenticated()"><a ui-sref="blogsIndex">blogsIndex</a></li>
-          <li ng-if="main.isAuthenticated()"><a ui-sref="projectsIndex">projectsIndex</a></li>
+          <li ng-if="main.isAuthenticated()"><a ui-sref="blogsIndex">Blogs</a></li>
+          <li ng-if="main.isAuthenticated()"><a ui-sref="projectsIndex">Projects</a></li>
           <li ng-if="!main.isAuthenticated()"><a ui-sref="login">Login</a></li>
           <li ng-if="!main.isAuthenticated()"><a ui-sref="register">Register</a></li>
-          <li ng-if="main.isAuthenticated()"><a ui-sref="blogsNew">blogsNew</a></li>
-          <li ng-if="main.isAuthenticated()"><a ui-sref="projectsNew">projectsNew</a></li>
+          <!-- <li ng-if="main.isAuthenticated("><a ui-sref="blogsNew">blogsNew</a></li> -->
+          <!-- <li ng-if="main.isAuthenticated()"><a ui-sref="projectsNew">projectsNew</a></li> -->
           <li ng-if="main.isAuthenticated()"><a ng-click="main.logout()" href="#">Logout</a></li>
         </ul>
       </div>
@@ -47,7 +47,7 @@
 
     <!-- ======================FOOTER ======================= -->
 
-  <footer class="footer">
+  <!-- <footer class="footer">
     <ul>
       <li><a ui-sref="home">Home</a></li>
 
@@ -58,7 +58,7 @@
       <li ng-if="!main.isAuthenticated()"><a ui-sref="register">Register</a></li>
       <li ng-if="main.isAuthenticated()"><a ng-click="main.logout()" href="#">Logout</a></li>
     </ul>
-  </footer>
+  </footer> -->
 
   </body>
 </html>

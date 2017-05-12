@@ -1,22 +1,23 @@
-<h1>shows all projects</h1>
+<div class="box">
 
-<!-- <div class="">
+<h1>Projects</h1>
+
+<div class="blog-box-one">
 
   <ul class="row">
-    <li ng-repeat="project in projectsIndex.all" class="col-md-6">
-      <div class="project">
+    <li ng-repeat="project in projectsIndex.all" class="col-md-6 col-lg-4 blog-box">
+      <div class="blog">
         <h2>{{ project.name }}</h2>
-          <img class="" ng-src="{{ projectsShow.project.user.image_src }}" alt="{{ projectsShow.project.user.username }}">
-
-        <p>Created by: <strong>{{ project.user.username }}</strong></p>
-        <button ui-sref="projectsShow({id: project.id})">View</button>
+        <div class="blog-img">
+          <a ui-sref="projectsShow({id: project.id})"><img ng-src="{{ project.imageSRC }}" alt="{{ project.name }}"></a>
+        </div>
       </div>
     </li>
   </ul>
-</div> -->
+</div>
+</div>
 
-
-<div uib-carousel active="projectsIndex.active" interval="projectsIndex.myInterval" no-wrap="projectsIndex.noWrapSlides">
+<!-- <div uib-carousel active="projectsIndex.active" interval="projectsIndex.myInterval" no-wrap="projectsIndex.noWrapSlides">
   <div uib-slide ng-repeat="project in projectsIndex.all" index="$index">
     <img ng-src="{{ project.imageSRC }}" style="margin:auto;">
     <div class="carousel-caption">
@@ -27,4 +28,4 @@
 
     </div>
   </div>
-</div>
+</div> -->

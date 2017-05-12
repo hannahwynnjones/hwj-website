@@ -3,7 +3,13 @@
 <div class="show-box">
 
 <h1>{{ blogsShow.blog.name }}</h1>
-<!-- <h3>Created by (username): {{ blogsShow.blog.createdBy.username }}</h3> -->
+
+<button ng-click="blogsShow.delete()" class="button" ng-if="main.isAuthenticated() && main.currentUserId === blogsShow.blog.createdBy.id">Delete</button>
+
+<!-- <button ui-sref="blogsEdit({id: blogsShow.blog.id})" ng-if="main.isAuthenticated() && main.currentUserId === blogsShow.blog.createdBy.id">Edit</button> -->
+
+
+
 <img ng-src="{{ blogsShow.blog.imageSRC }}" alt="{{ blogsShow.blog.user.username }}">
 
 <h4>{{ blogsShow.blog.body }}</h4>
@@ -14,10 +20,13 @@
 <section id="">
     <div class="">
       <h2>Comments</h2>
+
       <div class="comments">
+         {{ main.currentUser.id }}
         <ul>
-          <li ng-repeat="comment in blogsShow.blog.comments">{{ comment.content }} - <strong>{{ comment.createdBy.username }} . {{ comment.createdAt }} </strong>
-            <button ng-click="blogsShow.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUser.id === comment.user.id">Delete</button>
+          <li ng-repeat="comment in blogsShow.blog.comments">{{ comment.content }} - <strong>{{ comment.createdBy.first_name }} {{ comment.createdBy.second_name }} </strong>
+
+            <button ng-click="blogsShow.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id">Delete</button>
           </li>
         </ul>
       </div>
@@ -35,5 +44,7 @@
 </section>
 
 </div>
+
+<button><a ui-sref="blogsIndex">Back to all blogs</a></button>
 
 </div>
