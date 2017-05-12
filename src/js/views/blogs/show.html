@@ -1,34 +1,39 @@
-<h1>Show blog</h1>
 
-<h1>Name: {{ blogsShow.blog.name }}</h1>
-<h1>Created by (username): {{ blogsShow.blog.createdBy.username }}</h1>
-<h1>body of blog: {{ blogsShow.blog.body }}</h1>
-{{ blogsShow.blog }}
-<img class="" ng-src="{{ blogsShow.blog.imageSRC }}" alt="{{ blogsShow.blog.user.username }}">
+<div class="box">
+<div class="show-box">
 
+<h1>{{ blogsShow.blog.name }}</h1>
+<!-- <h3>Created by (username): {{ blogsShow.blog.createdBy.username }}</h3> -->
+<img ng-src="{{ blogsShow.blog.imageSRC }}" alt="{{ blogsShow.blog.user.username }}">
+
+<h4>{{ blogsShow.blog.body }}</h4>
 
 <!-- ======================COMMENTS============================= -->
+<div class="line"></div>
+
 <section id="">
     <div class="">
-      <h1>Comments</h1>
-      <div class="">
+      <h2>Comments</h2>
+      <div class="comments">
         <ul>
-          <li ng-repeat="comment in blogsShow.blog.comments">{{ comment.content }} - <strong>{{ comment.user.username }}</strong>
+          <li ng-repeat="comment in blogsShow.blog.comments">{{ comment.content }} - <strong>{{ comment.createdBy.username }} . {{ comment.createdAt }} </strong>
             <button ng-click="blogsShow.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUser.id === comment.user.id">Delete</button>
           </li>
         </ul>
       </div>
 <div class=""></div>
       <div class="comments" ng-if="main.isAuthenticated()">
-        <h2>Add Comment</h2>
+        <h3>Add Comment</h3>
         <br>
         <form ng-submit="blogsShow.addComment()">
           <textarea type="text" name="content" ng-model="blogsShow.newComment.content"></textarea>
           <br>
-          <button>Create</button>
+          <button>Comment</button>
         </form>
       </div>
     </div>
 </section>
 
-{{ blogsShow.blog.comments }}
+</div>
+
+</div>

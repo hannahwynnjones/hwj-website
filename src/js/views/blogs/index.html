@@ -1,22 +1,18 @@
-<h1>shows all blogs</h1>
+<div class="box">
 
-<div class="">
-  <h3>Welcome back {{ blogsIndex.currentUser.username }}</h3>
-</div>
+<h1>blogs</h1>
 
-<div class="">
+<div class="blog-box-one">
 
   <ul class="row">
-    <li ng-repeat="blog in blogsIndex.all" class="col-md-6">
+    <li ng-repeat="blog in blogsIndex.all" class="col-6 col-md-4 blog-box">
       <div class="blog">
         <h2>{{ blog.name }}</h2>
-          <img class="" ng-src="{{ blog.imageSRC }}" alt="{{ blog.name }}">
-
-        <p>Created by: <strong>{{ blog.createdBy.username }}</strong></p>
-        <img class="" ng-src="{{ blog.createdBy.imageSRC }}" alt="{{ blog.createdBy.username }}">
-
-        <button ui-sref="blogsShow({id: blog.id})">View</button>
+        <div class="blog-img">
+          <a ui-sref="blogsShow({id: blog.id})"><img ng-src="{{ blog.imageSRC }}" alt="{{ blog.name }}"></a>
+        </div>
       </div>
     </li>
   </ul>
+</div>
 </div>

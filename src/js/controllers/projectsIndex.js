@@ -13,11 +13,12 @@ function ProjectsIndexCtrl(Project, $state, $uibModal, $stateParams) {
   vm.active = 0; // This decides which slide is shown first (based on it's index in the array of slides)
 
   function openModal() {
+    console.log(vm.project);
     $uibModal.open({
       templateUrl: 'js/views/partials/projectShowModal.html',
       controller: 'ProjectsShowCtrl as ProjectsShow',
       resolve: {
-        currentProject: ($stateParams) => {
+        currentProject: () => {
           return vm.project;
         }
       }

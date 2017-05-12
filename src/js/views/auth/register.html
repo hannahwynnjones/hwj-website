@@ -1,11 +1,10 @@
-<div class="">
-  <div class="">
-    <div class="">
-      <h1>Register</h1>
+<div class="box">
+    <div class="box-sm">
+      <h1>REGISTER</h1>
 
       <form name="auth.registerForm" ng-submit="auth.register()">
 
-        <div>
+        <div class="auth-input">
           <label for="username">Username</label>
           <input type="text" name="username" ng-model="auth.user.username" id="username" required>
         </div>
@@ -13,7 +12,7 @@
           <div style="color:red;" ng-message="required"> A valid username is required </div>
         </div>
 
-        <div>
+        <div class="auth-input">
           <label for="email">Email</label>
           <input type="text" name="email" id="email" ng-model="auth.user.email" ng-pattern="/@/" required>
         </div>
@@ -23,21 +22,21 @@
           <div style="color:red;" ng-message="pattern">Please enter a valid email.</div>
         </div>
 
-        <div>
+        <div class="auth-input">
           <label for="first_name">First Name</label>
           <input type="text" name="first_name" ng-model="auth.user.first_name" id="first_name">
         </div>
         <div ng-messages="auth.registerForm.first_name.$error" role="alert" ng-show="(auth.registerForm.first_name.$touched) &&(auth.registerForm.first_name.$invalid)">
           <div style="color:red;" ng-message="required"> A valid first name is required </div>
         </div>
-        <div>
+        <div class="auth-input">
           <label for="second_name">Second Name</label>
           <input type="text" name="second_name" ng-model="auth.user.second_name" id="second_name">
         </div>
         <div ng-messages="auth.registerForm.second_name.$error" role="alert" ng-show="(auth.registerForm.second_name.$touched) &&(auth.registerForm.second_name.$invalid)">
           <div style="color:red;" ng-message="required"> A valid second name is required </div>
         </div>
-        <div>
+        <div class="auth-input">
           <label for="password">Password</label>
           <input type="password" name="password" ng-model="auth.user.password" required>
         </div>
@@ -45,7 +44,7 @@
           <div style="color:red;" ng-message="required"> Password is required </div>
         </div>
 
-        <div>
+        <div class="auth-input">
           <label for="passwordConfirmation">Password Confirmation</label>
           <input type="password" name="passwordConfirmation" ng-model="auth.user.passwordConfirmation" required>
         </div>
@@ -53,7 +52,7 @@
           <div style="color:red;" ng-message="required">Confirmation is required </div>
         </div>
 
-      <div>
+        <div class="auth-input">
         <label for="base64">Image</label>
         <input type="file" base64 name="base64" id="base64" ng-model="auth.user.base64">
       </div>
@@ -64,5 +63,4 @@
 
       </form>
     </div>
-  </div>
 </div>

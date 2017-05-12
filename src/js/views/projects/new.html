@@ -1,25 +1,25 @@
-<div class="">
-  <div class="">
-    <div class="">
+<div class="box">
+  <div class="box-mid">
+    <div class="box-sm">
 
       <h1>New Project</h1>
       <form name= "projectsNew.projectForm" ng-submit="projectsNew.create()">
-        <div>
+        <div class="auth-input">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" ng-model="projectsNew.project.name">
         </div>
 
-        <div>
+        <div class="auth-input">
           <label for="description">Description</label>
           <input type="text" id="description" name="description" ng-model="projectsNew.project.description">
         </div>
 
-        <div>
+        <div class="auth-input">
           <label for="base64">Image</label>
           <input type="file" base64 name="base64" id="base64" ng-model="projectsNew.project.base64">
         </div>
 
-        <div>
+        <div class="auth-input">
           <label for="link">Link to project</label>
           <input type="text" name="link" id="link" ng-model="projectsNew.project.link">
         </div>
@@ -28,4 +28,6 @@
       </form>
     </div>
   </div>
+  <div class="extra-height"></div>
+
 </div>

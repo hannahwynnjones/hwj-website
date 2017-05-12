@@ -2,16 +2,22 @@
 // @import 'colorSchemes';
 // @import 'responsive';
 
+
+.extra-height {
+  height: 600px;
+}
 //large line
 .line {
   border-style: solid;
+  border-width: thin;
   width: 800px;
   margin: 50px auto;
 }
 
-img {
-  height: 300px;
+.box {
+  margin: 100px auto;
 }
+
 
 .centered-styles {
   position: absolute;
@@ -20,17 +26,35 @@ img {
   transform: translate(-50%, -50%);
 }
 
+ul {
+  list-style: none;
+}
+
+h1, h2 {
+  text-transform: uppercase;
+  font-family: 'Gurmukhi MN', cursive;
+}
+
 //////////////////NAV BAR/////////////////////
 
 .navbar {
   position: fixed;
   z-index:50;
-  background-color: rgba(43, 168, 74, 0.3); //navbar colour
+  background-color: rgba(250, 250, 250, 0.7); //navbar colour
   height:50px;
   // padding: 10px 0;
   text-align: center;
   width:100%;
   color: black;
+}
+.nbar {
+  ul {
+    color: black;
+    li {
+      color: black;
+
+    }
+  }
 }
 
 //////////////////////////////FOOTER //////////////////////////////////

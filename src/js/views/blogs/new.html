@@ -1,26 +1,30 @@
-<div class="">
-  <div class="">
-    <div class="">
+<div class="box">
+  <div class="box-mid">
+    <div class="box-sm">
 
       <h1>New Blog</h1>
       <form name= "blogsNew.blogForm" ng-submit="blogsNew.create()">
-        <div>
+        <div class="auth-input">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" ng-model="blogsNew.blog.name">
         </div>
 
-        <div>
+        <div class="auth-input">
           <label for="body">Body</label>
-          <input type="text" id="body" name="body" ng-model="blogsNew.blog.body">
+          <input class="blog-input" type="text" id="body" name="body" ng-model="blogsNew.blog.body">
         </div>
 
-        <div>
+        <div class="auth-input">
           <label for="base64">Image</label>
           <input type="file" base64 name="base64" id="base64" ng-model="blogsNew.blog.base64">
         </div>
 
+        <div class="authButton">
           <button>Create Blog</button>
+        </div>
       </form>
     </div>
   </div>
+
+  <div class="extra-height"></div>
 </div>

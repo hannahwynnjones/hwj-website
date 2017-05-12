@@ -2,6 +2,9 @@
 <html ng-app="hwj">
   <head>
     <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <script src="https://use.fontawesome.com/f3566f1806.js"></script>
+
     <title>Hannah Wynn Jones</title>
   <base href="/">
     <!-- inject:js -->
@@ -14,27 +17,30 @@
     <!-- ===============NAV BAR ======================= -->
 
     <nav class="navbar navbar-default" role="navigation">
-      <div class="navbar-header">
+      <div class="navbar-header my-nav">
         <button type="button" class="navbar-toggle" ng-click="main.isNavCollapsed = !main.isNavCollapsed">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Hannah Wynn Jones</a>
+        <a ui-sref="home" class="navbar-brand" href="#">Hannah Wynn Jones</a>
       </div>
-      <div class="collapse navbar-collapse" uib-collapse="main.isNavCollapsed">
-        <ul class="nav navbar-nav">
-          <li><a ui-sref="home">Home</a></li>
+      <div class="nbar collapse navbar-collapse" uib-collapse="main.isNavCollapsed">
+        <ul class="nav navbar-nav my-nav">
 
           <li ng-if="main.isAuthenticated()"><a ui-sref="blogsIndex">blogsIndex</a></li>
           <li ng-if="main.isAuthenticated()"><a ui-sref="projectsIndex">projectsIndex</a></li>
           <li ng-if="!main.isAuthenticated()"><a ui-sref="login">Login</a></li>
           <li ng-if="!main.isAuthenticated()"><a ui-sref="register">Register</a></li>
+          <li ng-if="main.isAuthenticated()"><a ui-sref="blogsNew">blogsNew</a></li>
+          <li ng-if="main.isAuthenticated()"><a ui-sref="projectsNew">projectsNew</a></li>
           <li ng-if="main.isAuthenticated()"><a ng-click="main.logout()" href="#">Logout</a></li>
         </ul>
       </div>
     </nav>
+
+    <!-- ===============  MAIN  ===================== -->
 
     <div class="message" ng-if="main.message">{{ main.message }}</div>
     <main ui-view></main>
