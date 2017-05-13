@@ -11,7 +11,6 @@ const customResponses = require('./lib/customResponses');
 const { port, env, dbURI } = require('./config/environment');
 const app = express();
 
-
 app.use(morgan('dev'));
 
 mongoose.connect(dbURI);
