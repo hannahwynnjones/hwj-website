@@ -15,7 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "^1.5.8",
+    "angular": "^1.6.4",
     "angular-ui-router": "^1.0.1",
     "angular-resource": "^1.6.4",
     "satellizer": "^0.15.5",
@@ -26,7 +26,7 @@
     "zero-md": "zerodevx/zero-md#^0.2.0"
   },
   "resolutions": {
-    "angular": "1.6.4",
+    "angular": "^1.6.4",
     "showdown": "~0.3.1"
   }
 }

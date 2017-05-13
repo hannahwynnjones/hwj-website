@@ -1,3 +1,6 @@
+mongodb://hannahwynnjones:DB386476@@my-first-cluster-shard-00-00-gaqda.mongodb.net:27017,my-first-cluster-shard-00-01-gaqda.mongodb.net:27017,my-first-cluster-shard-00-02-gaqda.mongodb.net:27017/my-first-cluster?ssl=true&replicaSet=my-first-cluster-shard-0&authSource=admin
+
+
 ##FROM NOTES:
 
 This starter-code already has a `bower.json` file with `angular` as a dependency. To install run:

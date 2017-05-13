@@ -4,7 +4,8 @@
   "description": "A example stack with gulp and angular",
   "main": "index.js",
   "scripts": {
-    "postinstall": "bower install && gulp deploy"
+    "postinstall": "bower install && gulp deploy",
+    "start": "node server.js"
   },
   "author": "Alex Chin <alex@alexchin.co.uk>",
   "license": "ISC",
@@ -55,6 +56,7 @@
     "bcrypt": "^1.0.2",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.1",
+    "bower": "^1.8.0",
     "express": "^4.14.0",
     "jsonwebtoken": "^7.4.0",
     "mongoose": "^4.9.8",
