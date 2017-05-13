@@ -85,3 +85,10 @@ Sometimes, you might want to `override` the `main` file(s) for a specific Bower 
   }
 },
 ```
+### BLog ideas:
+
+markdown from https://zerodevx.github.io/zero-md/
+
+<zero-md text="H~~ell~~o *W*o**r**l***d***!">
+ <div class="md-html"></div>
+</zero-md>

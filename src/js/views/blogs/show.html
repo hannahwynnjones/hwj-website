@@ -9,10 +9,12 @@
 <!-- <button ui-sref="blogsEdit({id: blogsShow.blog.id})" ng-if="main.isAuthenticated() && main.currentUserId === blogsShow.blog.createdBy.id">Edit</button> -->
 
 
-
 <img ng-src="{{ blogsShow.blog.imageSRC }}" alt="{{ blogsShow.blog.user.username }}">
 
-<h4>{{ blogsShow.blog.body }}</h4>
+<zero-md text="{{ blogsShow.blog.body }}">
+ <div class="md-html markdown-div"></div>
+</zero-md>
+
 
 <!-- ======================COMMENTS============================= -->
 <div class="line"></div>

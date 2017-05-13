@@ -5,6 +5,9 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <script src="https://use.fontawesome.com/f3566f1806.js"></script>
 
+    <script src="https://cdn.rawgit.com/webcomponents/webcomponentsjs/v0.7.15/webcomponents-lite.min.js"></script>
+    <link rel="import" href="https://cdn.rawgit.com/zerodevx/zero-md/v0.2.0/build/zero-md.html">
+
     <title>Hannah Wynn Jones</title>
   <base href="/">
     <!-- inject:js -->
@@ -29,6 +32,7 @@
       <div class="nbar collapse navbar-collapse" uib-collapse="main.isNavCollapsed">
         <ul class="nav navbar-nav my-nav">
 
+          <li><a ui-sref="about">About</a></li>
           <li ng-if="main.isAuthenticated()"><a ui-sref="blogsIndex">Blogs</a></li>
           <li ng-if="main.isAuthenticated()"><a ui-sref="projectsIndex">Projects</a></li>
           <li ng-if="!main.isAuthenticated()"><a ui-sref="login">Login</a></li>
@@ -41,7 +45,6 @@
     </nav>
 
     <!-- ===============  MAIN  ===================== -->
-
     <div class="message" ng-if="main.message">{{ main.message }}</div>
     <main ui-view></main>
 

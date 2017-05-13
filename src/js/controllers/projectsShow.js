@@ -2,12 +2,15 @@ angular
   .module('hwj')
   .controller( 'ProjectsShowCtrl', ProjectsShowCtrl);
 
-ProjectsShowCtrl.$inject = ['Project', '$stateParams', '$state', '$auth'];
-function ProjectsShowCtrl(Project, $stateParams, $state, $auth) {
+ProjectsShowCtrl.$inject = ['Project', '$sce', '$stateParams', '$state', '$auth'];
+function ProjectsShowCtrl(Project, $sce, $stateParams, $state, $auth) {
   const vm = this;
   // if ($auth.getPayload()) vm.currentUser = User.get({ id: $auth.getPayload().id });
 
   vm.project = Project.get($stateParams);
+  // 
+  // vm.projectsShow.project.description.htmlSafe =
+  //    $sce.trustAsHtml(Project.description.html);
 
 //===================DELETE Project==============
 

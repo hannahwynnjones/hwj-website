@@ -14,6 +14,10 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
      url: '/',
      templateUrl: 'js/views/static/home.html'
    })
+   .state('about', {
+     url: '/about',
+     templateUrl: 'js/views/static/about.html'
+   })
    .state('blogsIndex', {
      url: '/blogs',
      templateUrl: 'js/views/blogs/index.html',
