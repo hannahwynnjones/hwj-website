@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "bower install && gulp deploy",
-    "start": "node server.js"
+    "start": "node index.js"
   },
   "author": "Alex Chin <alex@alexchin.co.uk>",
   "license": "ISC",
