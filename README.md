@@ -1,97 +1,82 @@
-mongodb://hannahwynnjones:DB386476@@my-first-cluster-shard-00-00-gaqda.mongodb.net:27017,my-first-cluster-shard-00-01-gaqda.mongodb.net:27017,my-first-cluster-shard-00-02-gaqda.mongodb.net:27017/my-first-cluster?ssl=true&replicaSet=my-first-cluster-shard-0&authSource=admin
+# My website
 
+### www.hannahwynnjones.com
 
-##FROM NOTES:
+<p align="center" style="padding: 20px 0;">
+  <img src="src/images/ss-home.png" width="600px;">
+</p>
 
-This starter-code already has a `bower.json` file with `angular` as a dependency. To install run:
+Full app can be seen [here](www.hannahwynnjones.com).
+
+**[Gallery](#gallery)**  
+
+#### Approach/ how it works
+
+As well as showing my contact details, I wanted a place to showcase all the links to the projects that I'd developed while being a student at General Assembly on the Wed Development Immersive Course.  
+
+I also wanted to add blogs to this site to show any techniques or cool tricks that would make my websites more interesting.
+
+#### The Build
+
+The app is a MEAN stack so I started by fleshing out the backend and then the basic CRUD elements for the blog and projects.  I then added authentication, image upload and comments schema.
+
+I noticed that that my blogs looked pretty awful when they were displayed, to solve this I wanted a way to change the plain text to Markdown easily.  I ended up choosing a <zero-md> method (which I will talk about in my first blog post!)
+
+#### Installation and deployment instructions
+
+This app already has a `bower.json` file with `angular` as a dependency. To install run:
 
 ```sh
 $ bower install && npm install
 ```
+Deploying to Heroku:
 
-Then open the app in Atom:
+`$ heroku: create`
 
-```sh
-$ atom .
-```
-
-Finally, run:
+I then added Herkou config varibales:
 
 ```sh
-$ gulp
-```
-==============
-
-To run: $ bower i && npm i
-
-### Using this Angular Gulp Setup
-
-To get setup with the starter-code, you first need to run:
-
-```sh
-$ bower install && gulp install
+$ heroku config:add NODE_ENV=production
+$ heroku config:add NPM_CONFIG_PRODUCTION=false
 ```
 
-## How is gulp setup?
+To create the mongo database:
 
-Rather than trying to manage one giant `gulpfile.js` that is file responsible for creating multiple tasks, each task has been broken out into its own file and placed in a directory `tasks`. Any files in that directory get automatically required in the gulpfile using the `require-dir` npm package.
+`$ heroku addons:create mongolab`
 
-To add a new task, simply add a new task file that directory.
 
-/tasks/default.js specifies the default set of tasks to run
-when you run `gulp`.
+#### Unsolved problems and challenges
 
-Configuration options are stored in the `package.json` file.
+Finding the Markdown converter proved difficult as there were lots of versions and some were terribly complicated.
 
-When deploying, ensure that a `postinstall` script has been added to
-your package.json, e.g.
+I'd like to add a few more animations to make the site more interesting, I played around with modals which weren't successful so I'd like to go back to that again.
 
-```json
-"postinstall": "bower install && gulp deploy"
-```
+I'm aware it's not fully responsive and that's something I'd like to fix.
 
-This setup expects that there is a bower.json file with at least ONE package
-installed. This will created a bower_components directory after
-the postinstall script has run.
+The first image on the 'about' page acts very strangely and sometimes appears and sometimes doesn't, I'd like to see what I can do to change that.  Perhaps using a smaller resolution image.
 
-When deploying, this setup expects that the NODE_ENV is set to `production`.
-Also that the NPM_CONFIG_PRODUCTION is set to `false`. Then you can also set the API_URL to be the correct URL for your deployed app. This will automatically replace `http://localhost:4000` to be the correct url.
+# Gallery
 
-You can do this by running:
+<h5>Welcome page</h5>
+<br>
+<p align="center">
+  <img src="src/images/ss-home.png" width="600px;" style="padding-bottom: 10px;">
+</p>
 
-```bash
-$ heroku config:set NODE_ENV=production
-$ heroku config:set NPM_CONFIG_PRODUCTION=false
+<h5></h5>
+<br>
+<p align="center" style="padding: 20px 0;">
+  <img src="src/images/ss-flights.png" width="400px;" style="padding-bottom: 10px;">
+</p>
 
-# An example url
-$ heroku config:set API_URL=https://project-on-heroku.herokuapp.com/
-```
+<h5></h5>
+<br>
+<p align="center" style="padding: 20px 0;">
+  <img src="src/images/ss-demi.png" width="400px;" style="padding-bottom: 10px;">
+</p>
 
-### Bower overrides
-
-Sometimes, you might want to `override` the `main` file(s) for a specific Bower component. You can do this directly inside the `bower.json` file like this:
-
-```json
-"overrides": {
-  "bootstrap": {
-    "main": [
-      "dist/css/bootstrap.css",
-      "dist/js/bootstrap.js",
-      "dist/fonts/*"
-    ]
-  },
-  "font-awesome": {
-    "main": [
-      "css/font-awesome.css",
-      "fonts/*"
-    ]
-  }
-},
-```
-### BLog ideas:
-
-markdown from https://zerodevx.github.io/zero-md/
-
-<zero-md text="H~~ell~~o *W*o**r**l***d***!">
- <div class="md-html"></div>
-</zero-md>
+<h5></h5>
+<br>
+<p align="center" style="padding: 20px 0;">
+  <img src="src/images/ss-register.png" width="400px;" style="padding-bottom: 10px;">
+</p>
