@@ -69,12 +69,14 @@ ul {
   h1 {
     margin: 30px;
     font-size: 60px;
+    font-family: 'Gurmukhi MN', cursive;
   }
   h2 {
-    margin: 50px;
-  }
+    // margin: 50px;
+    font-family: 'Gurmukhi MN', cursive;
+      }
   h3 {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Gurmukhi MN', cursive;
     margin-top: 20px;
   }
   img {
@@ -131,48 +133,66 @@ textarea {
       overflow: hidden;
       margin: 25px auto;
       text-align: center;
-      }
-
-  .left {
-    position: relative;
-    // width: 40%;
-    height: 100%;
-    float: left;
-    margin: 30px 0 30px 30px;
-    img {
-      width: 300px;
-      height: 100%;
-    }
-  }
 
   .right {
-    float: right;
+    float: none;
+    text-align: center;
     position: relative;
-    width: 55%;
-    max-height: 800px;
-    margin: 40px 0 40px 0;
+    width: 80%;
+    max-height: 100%;
+    margin: 0 auto;
     .proj-show-div {
       .markdown-div {
-        margin:5px 0;
+        margin: 5px 0;
         padding:3px;
+        font-family: 'Nunito', sans-serif;
+        ul {
+          -moz-column-count: 3;
+          -moz-column-gap: 20px;
+          -webkit-column-count: 3;
+          -webkit-column-gap: 20px;
+          column-count: 3;
+          column-gap: 10px;
+          width: 800px;
+          // list-style: initial;
+          padding: 15px;
+          li {
+            width: 100%;
+            font-size: 18px;
+            letter-spacing: 2px;
+          }
+        }
         p {
-          width: 450px;
+          font: 16px;
+          width: 80%;
           margin:5px 0;
           padding:1%;
           height: 100%;
           word-break: break-all;
+          hyphens: auto;
           text-align: left;
+
+            img {
+              height: 100%;
+              width: 80%;
+              margin: 0 auto;
+              text-align: center;
+              border-radius: 10px;
+              border-width: thin;
+              border-style: solid;
+              border-color: grey;
+            }
           }
         }
 
-    }
+      }
     i {
       font-size: 30px;
-      margin: 20px;
+      margin: 40px 20px 20px 20px;
     }
 
   }
-
+}
 }
 button {
   margin: 20px;
