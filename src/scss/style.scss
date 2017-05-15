@@ -151,18 +151,21 @@ textarea {
     width: 55%;
     max-height: 800px;
     margin: 40px 0 40px 0;
-    .markdown-div {
-      margin:5px 0;
-      padding:3px;
-      p {
-        width:98%;
+    .proj-show-div {
+      .markdown-div {
         margin:5px 0;
-        padding:1%;
-        height: 100%;
-        word-break: break-all;
-        text-align: left;
+        padding:3px;
+        p {
+          width: 450px;
+          margin:5px 0;
+          padding:1%;
+          height: 100%;
+          word-break: break-all;
+          text-align: left;
+          }
         }
-      }
+
+    }
     i {
       font-size: 30px;
       margin: 20px;

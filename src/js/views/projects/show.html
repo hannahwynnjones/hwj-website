@@ -15,13 +15,18 @@
           <a href="{{ projectsShow.project.github }}" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
           <a href="{{ projectsShow.project.link }}" target="_blank"><i class="fa fa-globe" aria-hidden="true"></i></a>
 
-          <zero-md text="{{projectsShow.project.description}}">
-           <div class="md-html markdown-div"></div>
-          </zero-md>
+          <div class="proj-show-div">
 
+            <zero-md text="{{projectsShow.project.description}}">
+              <div class="md-html markdown-div"></div>
+            </zero-md>
+          </div>
         </div>
       </div>
     </div>
+
+    <button ng-click="projectsShow.delete()" class="button" ng-if="main.isAuthenticated() && main.currentUserId === projectsShow.project.createdBy.id">Delete</button>
+
 
     <button><a ui-sref="projectsIndex">Back to all projects</a></button>
 
