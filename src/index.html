@@ -34,8 +34,8 @@
         <ul class="nav navbar-nav my-nav">
 
           <li><a ui-sref="about">About</a></li>
-          <li ng-if="main.isAuthenticated()"><a ui-sref="blogsIndex">Blogs</a></li>
-          <li ng-if="main.isAuthenticated()"><a ui-sref="projectsIndex">Projects</a></li>
+          <li ><a ui-sref="blogsIndex">Blogs</a></li>
+          <li ><a ui-sref="projectsIndex">Projects</a></li>
           <li ng-if="!main.isAuthenticated()"><a ui-sref="login">Login</a></li>
           <li ng-if="!main.isAuthenticated()"><a ui-sref="register">Register</a></li>
           <!-- <li ng-if="main.isAuthenticated("><a ui-sref="blogsNew">blogsNew</a></li> -->
