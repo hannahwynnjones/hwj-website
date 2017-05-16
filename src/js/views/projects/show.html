@@ -25,8 +25,8 @@
       </div>
     </div>
 
-    <button ng-click="projectsShow.delete()" class="button" ng-if="main.isAuthenticated() && main.currentUserId === projectsShow.project.createdBy.id">Delete</button>
-
+    <button ng-if="main.isAuthenticated()" ng-click="projectsShow.delete()" class="button">Delete</button>
+    <!-- <button ng-if="main.isAuthenticated()" class="" ui-sref="projectsEdit({ id: projectsShow.project.id})">Edit Item</button> -->
 
     <button><a ui-sref="projectsIndex">Back to all projects</a></button>
 
