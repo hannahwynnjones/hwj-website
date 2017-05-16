@@ -2,18 +2,18 @@
 <div class="box">
 <div class="show-box">
 
-<h1>{{ blogsShow.blog.name }}</h1>
+  <h1>{{ blogsShow.blog.name }}</h1>
 
-<button ng-click="blogsShow.delete()" class="button" ng-if="main.isAuthenticated() && main.currentUserId === blogsShow.blog.createdBy.id">Delete</button>
+  <button ng-click="blogsShow.delete()" class="button" ng-if="main.isAuthenticated() && main.currentUserId === blogsShow.blog.createdBy.id">Delete</button>
 
-<!-- <button ui-sref="blogsEdit({id: blogsShow.blog.id})" ng-if="main.isAuthenticated() && main.currentUserId === blogsShow.blog.createdBy.id">Edit</button> -->
+  <!-- <button ui-sref="blogsEdit({id: blogsShow.blog.id})" ng-if="main.isAuthenticated() && main.currentUserId === blogsShow.blog.createdBy.id">Edit</button> -->
 
 
-<img ng-src="{{ blogsShow.blog.imageSRC }}" alt="{{ blogsShow.blog.user.username }}">
+  <img ng-src="{{ blogsShow.blog.imageSRC }}" alt="{{ blogsShow.blog.user.username }}">
 
-<zero-md text="{{ blogsShow.blog.body }}">
- <div class="md-html markdown-div"></div>
-</zero-md>
+  <zero-md text="{{ blogsShow.blog.body }}">
+    <div class="md-html markdown-div"></div>
+  </zero-md>
 
 
 <!-- ======================COMMENTS============================= -->
