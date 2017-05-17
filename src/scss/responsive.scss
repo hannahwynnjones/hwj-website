@@ -26,24 +26,80 @@
   }
 }
   @media only screen and (max-width: 640px) {
+
+    ////////   HOME  /////////////////////////////
     .title {
       left: 50%;
     }
+    .fs {
+      top: 99%;
+      padding-top: 280px;
+    }
+    .contact-icons {
+      top: 95%;
+      padding-top: 80px;
 
+    }
     .project-div {
       padding: 15px;
+      width: 100%;
       background-color: rgba(150, 150, 150, 0.7);
-      left: 30%;
       margin-top: 20px;
     }
     .line-proj {
       visibility: hidden;
     }
+
+//     ////////////////   ABOUT   /////////////////
+//   .container {
+//     position:relative;
+//     .contact-icons {
+//       position: absolute;
+//       width : 100%;
+//       min-height : 20px;
+//       background-color : #f00;
+//       float: clear;
+//
+//     }
+//
+//     .left {
+//       position: absolute;
+//       width : 100%;
+//       height : 100px;
+//       background-color : #000;
+//       float: left;
+//
+//     }
+//     .right {
+//       position: absolute;
+//       width : 100%;
+//       height : 25px;
+//       background-color: #0f0;
+//       float: clear;
+// top: 0; left: 0;
+//     }
+//
+//     .imageb {
+//       position: absolute;
+//       width : 100%;
+//       height : 50px;
+//       background-color: yellow;
+//       float: clear;
+// top: 0; left: 0;
+//     }
+//     .skills-div {
+//       position: absolute;
+//       width : 100%;
+//       height : 50px;
+//       background-color: blue;
+//       float: clear;
+// top: 0; left: 0;
+//     }
+//   }
 }
 
-@media only screen and (max-width:414px) {
+@media only screen and (max-width:413px) {
   .title {
-    width: 100%;
     .hannah{
     font-size: 30px;
         }
@@ -57,9 +113,10 @@
         }
       }
         .project-div {
+          width: 160px;
           padding: 15px;
+          margin-left: 12px;
           background-color: rgba(150, 150, 150, 0.7);
-          left: 20%;
           margin-top: 20px;
         }
 
