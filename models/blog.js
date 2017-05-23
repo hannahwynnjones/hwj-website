@@ -18,6 +18,7 @@ const blogSchema = new mongoose.Schema({
   createdBy: {type: mongoose.Schema.ObjectId, ref: 'User', required: true},
   image: {type: String},
   body: {type: String, required: true},
+  createdAt: {type: Date},
   comments: [commentSchema]
 });
 

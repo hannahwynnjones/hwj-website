@@ -14,6 +14,11 @@
           <input type="text" id="body" name="body" ng-model="blogsEdit.blog.body">
         </div>
 
+        <div>
+          <label for="createdAt">Date added</label>
+          <input type="date" id="createdAt" name="createdAt" ng-model="blogsEdit.blog.createdAt">
+        </div>
+
         <div class="auth-input">
           <label for="base64">Image</label>
           <input type="file" base64 name="base64" id="base64" ng-model="blogsEdit.blog.base64">

@@ -7,7 +7,8 @@ const projectSchema = new mongoose.Schema({
   image: {type: String},
   description: {type: String, required: true},
   link: {type: String, required: true},
-  github: {type: String, required: true}
+  github: {type: String, required: true},
+  createdAt: {type: Date}
 });
 
 projectSchema.methods.belongsTo = function projectBelongsTo(user) {

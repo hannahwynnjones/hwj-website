@@ -4,6 +4,10 @@
 
   <h1>{{ blogsShow.blog.name }}</h1>
 
+  <div class="date">
+    {{ blogsShow.blog.createdAt }}
+  </div>
+
   <button ng-click="blogsShow.delete()" class="button" ng-if="main.isAuthenticated() && main.currentUserId === blogsShow.blog.createdBy.id">Delete</button>
 
   <!-- <button ui-sref="blogsEdit({id: blogsShow.blog.id})" ng-if="main.isAuthenticated() && main.currentUserId === blogsShow.blog.createdBy.id">Edit</button> -->
