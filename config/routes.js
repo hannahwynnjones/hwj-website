@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const auth = require('../controllers/auth');
 const secureRoute = require('../lib/secureRoute');
+// const admin = require('../lib/admin');
 const imageUpload = require('../lib/imageUpload');
 // const userController = require('../controllers/user');
 const blogController = require('../controllers/blog');

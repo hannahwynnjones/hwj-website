@@ -12,7 +12,6 @@ function MainCtrl($rootScope, $state, $auth) {
   if($auth.getPayload()) vm.currentUserId = $auth.getPayload().userId;
   console.log(vm.currentUserId, 'currentUserId');
   // if($auth.getPayload()) vm.profilePageId = $auth.getPayload().userId;
-
   $rootScope.$on('error', (e, err) => {
     vm.stateHasChanged = false;
     vm.message = err.data.message;
@@ -24,8 +23,6 @@ function MainCtrl($rootScope, $state, $auth) {
     if(!vm.stateHasChanged) vm.stateHasChanged = true;
     vm.isNavCollapsed = true;
     if($auth.getPayload()) vm.currentUserId = $auth.getPayload().userId;
-    console.log(vm.currentUserId, 'currentUserId');
-
   });
 
 
